@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Apartment</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"/>
+<style>
+
+
+                                                       /* Nav link */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}
+
+html {
+    font-size: 16px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1%;
+}
+
+.nav {
+    max-width: 1600px;
+    margin: 20px auto 8px auto;
+    align-items: center;
+    text-align: center;
+    position: sticky;
+    top: 0; /* Stick to the top of the viewport */
+    background-color: white; /* You can change this to match your design */
+    z-index: 1000; /* Adjust the z-index as needed */
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the list horizontally */
+    list-style: none;
+}
+
+ul li {
+    text-transform: capitalize;
+    margin: 0 30px; /* Add spacing between list items */
+    font-size: 1rem; /* Adjust the font size */
+}
+
+ul li::before {
+    content: "+";
+    margin-right: 5px;
+}
+
+
+.menu {
+    width: 100%; /* Take up the full width */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
+    margin-left: 10%;
+    cursor: pointer;
+}
+
+.toggle-btn {
+    display: flex;
+    font-size: 1.7rem;
+    cursor: pointer;
+    margin-left: auto;
+    align-items: center; 
+    justify-content: center;
+    width: 1.9rem; 
+    height: 1.9rem;
+    border-radius: 50%;
+}
+
+.log-box {
+    margin-right: auto;
+}
+
+.log-box h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+
+.dex{
+font-size: 25px;
+color: #204048;
+transition: transform 0.3s ease;
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+.dex:hover {
+  transform: scale(0.95);
+}
+
+
+                                                       /* Dropdown hover */
+
+.dropbtn {
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #8a8585;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.dropdown-content a {
+  color: rgb(254, 251, 251);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #34796c;
+    border-radius: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    border-radius: 10px;
+}
+
+
+
+
+                                                        /* Overlay toggle css */
+
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: rgba(12, 10, 10, 0.885); /* Changed overlay background color and opacity */
+  overflow-x: hidden;
+  transition: 0.5s;
+  z-index: 1000;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 65%; /* Changed from 65% to 50% */
+  left: 30%; /* Added to center horizontally */
+  transform: translate(-50%, -50%); /* Center both horizontally and vertically */
+  width: 80%;
+  max-width: 250px;
+  padding: 20px;
+  font-size: 15px; /* Slightly reduced font size from 20px to 18px */
+  color: #f9f5f5;
+  text-align: center;
+  margin-top:25px;
+}
+
+
+.overlay.show {
+  width: 50%; 
+}
+
+.overlay.show .overlay-content {
+  transform: translateX(0) translateY(-50%);
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 35px;
+  right: 15px;
+  font-size: 24px;
+  color: #faf7f7; /* Changed close button color */
+  cursor: pointer;
+}
+
+.overlay-content i {
+  margin-right: 10px;
+  font-size: 18px;
+  padding-top: 15%;
+}
+
+
+.overlay p {
+      font-size: 45px;
+      margin-bottom: 20px;
+      color: #f1f1f1;
+      padding-top: 10%;
+}
+
+.overlay iframe {
+      width: 80%;
+      max-width: 800px;
+      height: 250px;
+      border: 0;
+}
+
+.social{
+  color: white;
+  margin-top: 260px;
+  font-size: 40px;
+  margin-right: 50px;
+}
+
+                                                          /* pic & search css */
+
+.two-section .left{
+width: 60%;
+height: 30vh;
+position: absolute;
+z-index: 999;
+top: 23vh;
+color:  #0a7cef;
+}
+
+.two-section .left h1{
+  font-size: 60px;
+  font-weight: 700;
+  margin-left: 80px; 
+}
+
+.two-section .left h4{
+  margin-left: 80px; 
+  color:  #060707;
+}
+
+
+.search {
+    margin-top: 20px;
+    margin-left: 100px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    position: relative;
+}
+
+.search input {
+    width: 2500%; /* Adjusted width */
+    border: 0;
+    background-color: white;
+    padding: 25px 40px;
+    font-size: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: -40px;
+}
+
+.search-btn {
+    width: 560%; /* Adjusted width */
+    border: 0;
+    background-color: #3C6E71;
+    color: #e7edef;
+    padding: 25px 10px;
+    font-size: 15px;
+    font-weight: 700;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+}
+
+
+.hero-image {
+  width: 80%; /* Adjust the width as needed */
+  height: 70vh; /* Adjust the height as needed */
+  background-image: url(wall.jpeg);
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  right: -17%;
+}
+
+
+                                                    /* for popular tags */
+
+h3 {
+    font-size: 24px; 
+    margin-left: 70px;
+    margin-top: 40px;
+    color:  #090909;
+  }
+
+  .flow {
+    display: flex; /* Display buttons horizontally */
+    align-items: center; /* Align items vertically within flex container */
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .flow li {
+    list-style: none; /* Remove default list bullets */
+  }
+
+  .flow button {
+    font-size: 18px; 
+    padding: 8px 16px; /* Add padding to buttons */
+    background-color: #f1f1f1; 
+    border: none; /* Remove button borders */
+    border-radius: 4px; 
+    cursor: pointer; 
+    margin-left: 50px;
+  }
+
+                                                     /* for transition1 */
+.animate {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.left.loaded .animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@keyframes staticFadeIn {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.static {
+  animation: staticFadeIn 0.8s ease forwards;
+}
+
+                                                      /* trolley css */
+
+ .trolley-button {
+  position: fixed;
+  bottom: -20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #dcedfb;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(3, 76, 36);
+  box-shadow: 0 0 1em rgba(1, 17, 39, 0.25);
+  cursor: pointer;
+  opacity: 0;
+  transition: bottom 0.5s ease-out, opacity 0.5s ease-out;
+  transform: translateX(-50%);
+  z-index: 9999; /* Ensure the button is on top of other content */
+}
+
+.trolley-button.show1 {
+  opacity: 1;
+  bottom: 20px;
+}
+
+.trolley-button::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(78, 76, 135, 0.3);
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  transform-origin: center; /* Add this line to set the origin of the ripple */
+}
+
+.trolley-button:hover::before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+
+/* Add this if you want the trolley button to overlap as you scroll */
+.trolley-button.overlap {
+  transition: bottom 0.5s ease-out, opacity 0.5s ease-out, transform 0.5s ease-out;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+
+
+
+
+                                                      /* Option css */
+/* Clear float and create a new row */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.column {
+  float: left;
+  width: calc(33.33% - 20px); /* Adjust width and margin */
+  margin: 0 10px; /* Add margin on both sides */
+  text-align: center;
+}
+
+.centered-image {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.centered-image:hover {
+  transform: scale(1.05);
+  filter: brightness(90%);
+}
+
+.center-text {
+  text-align: center;
+  font-size: 36px;
+  color: #101d55;
+  margin: 20px 0;
+}
+
+.big-font {
+  font-size: 46px;
+  text-align: center;
+  color: #101d55;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.property-info {
+  margin-top: 10px;
+  text-align: left;
+  margin-left: 40px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 18px;
+  color: #f6f8f9;
+  background-color: #3C6E71;
+  border-radius: 8px;
+  margin: 5px 10px 0;
+  padding: 5px 10px;
+}
+
+.location {
+  margin-top: 5px;
+  font-size: 26px;
+  color: green;
+  margin-left: 10px;
+}
+
+.amenities {
+  margin-top: 10px;
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+
+
+
+                                                    /* Slideshow container */
+.caro{
+  font-size: 46px;
+  color: #101d55;
+  text-align: left;
+  margin-top: 70px;
+  margin-bottom: 30px;
+  margin-left: 45px;
+}
+
+
+.another-centered-image{
+  float: left;
+}
+
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin-left: 140px;
+}
+
+.mySlides {
+  position: relative;
+  left: -90px;
+}
+
+
+.mySlides img {
+  border-radius: 20px;
+  margin-bottom: 35px;
+}
+
+.dot {
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+.write{
+margin-top: 90px;
+font-size: 20px;
+margin-right: 55px;
+
+}
+.money{ 
+  font-size: 35px;
+  color:#101d55;
+}
+
+.slide {
+    text-align: center;
+    margin-top: 90px;
+    margin-right: 800px;
+    margin-bottom: 95px;
+  }
+
+
+                                                  /*Company aspects css*/
+.new-image{
+  float: left;
+  border-radius: 10px;
+  margin-left: 35px;
+  margin-right: 20px;
+  margin-bottom: 45px;
+}
+
+
+
+.aspect{
+  font-size: 55px;
+  color:#101d55 ;
+
+  opacity: 0; /* Initially hide the element */
+    transform: translateY(50px); /* Move the element down */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
+.aspect.show {
+    opacity: 1; /* Show the element */
+    transform: translateY(0); /* Move the element back to its original position */
+  }
+
+
+.statistics {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+  .statistic {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .statistics .statistic {
+    opacity: 0; /* Initially hide the elements */
+    transform: translateY(50px); /* Move the elements down */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Apply transition effect */
+  }
+
+  .statistics .statistic.show {
+    opacity: 1; /* Show the elements */
+    transform: translateY(0); /* Move the elements back to their original position */
+  }
+
+  .stat-number {
+    font-size: 50px;
+    font-weight: bold;
+    color: #101d55;
+  }
+
+  .stat-label {
+    font-size: 18px;
+    margin-top: 5px;
+    color: #666;
+  }
+
+                                                  /* Testimonials css */
+
+.help{
+    font-size: 46px;
+    text-align: center;
+    color: #101d55;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    margin-right: 35px;
+
+}
+
+
+.wrapper {
+  background-color: #ffffff;
+  position: relative;
+  width: 80vw;
+  max-width: 41em;
+  min-height: 25em;
+  border-radius: 0.6em;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  display: flex;
+  margin-top: 230px;
+}
+.testimonial-container {
+  width: 85%;
+  height: 100%;
+  position: relative;
+  margin: auto;
+  padding: 1.8em 1.2em;
+  cursor: pointer;
+}
+.wrapper button {
+  font-size: 1.8em;
+  height: 2.2em;
+  width: 2.2em;
+  background-color: #ffffff;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  border: none;
+  color: #0a69ed;
+  box-shadow: 0 0 1em rgba(1, 17, 39, 0.25);
+  cursor: pointer;
+  border-radius: 50%;
+}
+button#next {
+  right: -5.5em;
+}
+button#prev {
+  left: -5.5em;
+}
+.testimonial-container p {
+  color: #8c8c90;
+  text-align: center;
+  font-size: 0.9em;
+  line-height: 2em;
+  letter-spacing: 0.05em;
+}
+.testimonial-container img {
+  display: block;
+  margin: 1.8em auto 1.25em auto;
+  border-radius: 50%;
+  width: 4.4em;
+}
+.testimonial-container h3 {
+  color: #2d3d67;
+  font-size: 1em;
+  text-align: center;
+  margin-right: 60px;
+}
+.testimonial-container h6 {
+  color: #bcc4da;
+  font-size: 0.9em;
+  letter-spacing: 0.03em;
+  font-weight: 400;
+  text-align: center;
+}
+
+
+@media screen and (max-width: 650px) {
+  .wrapper {
+    font-size: 14px;
+  }
+}
+
+
+
+                                                      /* Side by side css */
+ .area {
+  margin-left: 90px;
+}
+
+.view {
+  background-color: rgb(1, 75, 1);
+  color: white;
+  font-size: 25px;
+  border-radius: 8px;
+  margin-left: 180px;
+  margin-top: 25px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+}
+
+.view:hover {
+  transform: scale(0.95);
+  background-color: #6edda4;
+}
+
+.loftarea {
+  font-size: 46px;
+  color: #101d55;
+  margin-top: 70px;
+  margin-bottom: 30px;
+  margin-left: 90px;
+}
+
+.loftarea,
+.area {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 1s, transform 1s;
+}
+
+.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loft {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.images-container {
+  flex: 1;
+  display: flex;
+  margin-top: 85px;
+  margin-right: 65px;
+}
+
+.image {
+  width: 230px;
+  height: 515px;
+  position: relative; /* Add position relative to allow absolute positioning within */
+  transition: opacity 0.3s ease; /* Add fade transition */
+}
+
+.image1 {
+  background-image: url('place.jpeg');
+}
+
+.image2 {
+  background-image: url('place2.jpeg');
+}
+
+.image3 {
+  background-image: url('place3.jpeg');
+}
+
+.image4 {
+  background-image: url('place4.jpeg');
+}
+
+.image:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(22, 54, 18, 0.582); /* Green transparent hover effect */
+  pointer-events: none; /* Allows hovering through the transparent overlay */
+  transition: opacity 0.3s ease; /* Add fade transition */
+  opacity: 1;
+}
+
+.image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%; /* Adjust the height of the faded green area */
+  background: linear-gradient(rgba(0, 255, 0, 0), rgba(23, 181, 23, 0.725));
+  pointer-events: none;
+}
+
+.image-text1,
+.image-text2,
+.image-text3,
+.image-text4 {
+  position: absolute;
+  top: 445px; /* Adjust the top positioning as needed */
+  color: rgb(243, 247, 245);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px 10px;
+  text-align: left; /* Align text to the left */
+  width: auto; /* Allow the width to adjust based on text content */
+  margin-top: 820px;
+}
+
+.image-text2 {
+  left: 715px;
+}
+
+.image-text3 {
+  left: 950px;
+}
+
+.image-text4 {
+  left: 1170px;
+}
+
+
+                                                            /* Footer css */
+
+.Footer {
+    width: 100%;
+    height: 594.19px;
+    background-image: url('back.jpeg'); 
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+.Footer section {
+    width: 80%;
+    height: 514.19px;
+    margin-top: 80px;
+    padding: 10px;
+}
+
+.Footer section .FooterHeader {
+    width: 100%;
+    height: 87.188px;
+    margin-bottom: 50px;
+    display: flex;
+}
+
+.Footer section .FooterHeader .Heading-1 {
+    width: 746.66px;
+    height: auto;
+    padding: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 150px;
+    color: #133b5c;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.Footer section .FooterHeader .Heading-2 {
+    width: 322.53px;
+    height: auto;
+    padding: 10px;
+    font-size: 35px;
+    font-weight: 550;
+}
+
+.Footer section .FooterContent {
+    width: 100%;
+    height: 176px;
+    margin-bottom: 80px;
+    display: flex;
+}
+
+.Footer section .FooterContent .F-Content {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
+
+.Footer section .FooterContent .F-Content .F-Link {
+    margin-bottom: 20px;
+}
+
+.Footer section .FooterContent .F-Content .F-Link a {
+    text-decoration: none;
+    color: #133b5c;
+    font-weight: 500;
+    display: block;
+}
+
+.Footer section .FooterContent .F-Content .Box-1 .F-Link {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.Footer section .FooterContent .F-Content .Box-2 {
+    height: 100%;
+    height: 56px;
+}
+
+.Footer section .FooterContent .F-Content .Box-2 a {
+    margin-right: 10px;
+    font-size: 35px;
+    color: #3C6E71;
+}
+
+.Footer section .FooterCredits {
+    width: 100%;
+    height: 46px;
+    text-align: center;
+    color: #797a7e;
+}
+
+
+
+
+                                          /* Media query for screens smaller than 768px */
+
+  @media (max-width: 768px) {
+  .nav {
+    justify-content: center;
+  }
+
+  ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 1000;
+  }
+
+  ul.show {
+    display: flex;
+  }
+
+  ul li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .menu {
+    margin-left: 0;
+  }
+
+  .toggle-btn {
+    margin-right: 10px;
+  }
+
+  .log-box {
+    margin-right: 0;
+  }
+
+  /* Hide the menu items in mobile navigation */
+  .nav.show-mobile ul {
+    display: none;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .search {
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .search input {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .search-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .loftarea,
+  .area {
+    opacity: 1;
+    transform: none;
+    margin-left: 20px;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .loft {
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .images-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .image-text1,
+  .image-text2,
+  .image-text3,
+  .image-text4 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .slideshow-container {
+    margin-left: 20px;
+    max-width: 80%;
+  }
+
+  .mySlides {
+    left: 0;
+  }
+
+  .dot {
+    margin: 0 5px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .new-image {
+    float: none;
+    margin: 0 auto 20px auto;
+  }
+
+  .aspect,
+  .statistics .statistic {
+    opacity: 1;
+    transform: none;
+    text-align: center;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 20px;
+  }
+
+  .footer-column {
+    padding: 5px;
+  }
+
+  .footer-statement {
+    font-size: 24px;
+  }
+
+  .footer-links {
+    font-size: 18px;
+  }
+
+  .right-column p {
+    font-size: 12px;
+  }
+
+  .right-column i {
+    font-size: 24px;
+  }
+
+  .middle-column,
+  .right-column {
+    margin-top: 30px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!--Nav area-->
+<div class="nav flex">
+    <div class="log-box">
+        <h2 class="dex">Dexico.</h2>
+    </div>
+    <div class="menu" id="menus">
+        <ul>
+            <div class="dropdown">
+                <a href="index.html"><li class="dropbtn">Home</li></a>
+                <div class="dropdown-content">
+                  <a href="#">Home 1</a>
+                  <a href="#">Home 2</a>
+                  <a href="#">Home 3</a>
+                </div>
+              </div>
+
+
+            <div class="dropdown">
+              <a href="property.html"><li class="dropbtn">Property</li></a>
+                <div class="dropdown-content">
+                  <a href="#">Property List</a>
+                  <a href="prodetails.html">Property details</a>
+                  <a href="#">Property details Width</a>
+                  <a href="agents.html">Agents</a>
+                  <a href="agdetails.html">Agent details</a>
+                </div>
+              </div>
+
+
+            <div class="dropdown">
+              <a href="about.html"><li class="dropbtn">About</li></a>
+                <div class="dropdown-content">
+                  <a href="error.html">404</a>
+                </div>
+              </div>
+
+              
+              <div class="dropdown">
+                <a href="blogs.html"><li class="dropbtn">Blogs</li></a>
+                <div class="dropdown-content">
+                  <a href="#">Single Post</a>
+                </div>
+              </div>
+
+
+           <div class="dropdown">
+            <a href="contacts.html"><li class="dropbtn">Contacts</li></a>
+              </div>
+        </ul>
+        <span class="toggle-btn" onclick="toggle()">&#9776;</span>
+        <div id="myOverlay" class="overlay">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a>
+          <p>Lets Be Together</p>
+          <br>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6344.6987579136485!2d-122.01341128842799!3d37.33423650488766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb596e9e188fd%3A0x3b0d8391510688f0!2sApple%20Park!5e0!3m2!1sen!2sin!4v1691667033122!5m2!1sen!2sin" width="50%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <br>
+          <div class="overlay-content">
+            <i class="fa fa-map-marker-alt"></i> LA, Vehicula Street, 58<br>
+            <i class="fa fa-phone"></i> +123 6897 8974<br>
+            <i class="fa fa-envelope"></i> hello@merkulov
+          </div>
+          <div class="social">
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-facebook"></i> 
+            <i class="fab fa-instagram"></i> 
+          </div>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<!--Search area-->
+<div class="two-section flex inner">
+  <div class="left">
+      <h1 class="animate">Apartments <br> For Life</h1>
+      <h4 class="animate">In the heart of Brooklyn, in a vibrant neighborhood just east of Prospect Park,<br>
+        stands an eight-story, full-service, strikingly beautiful apartment building</h4>
+      <div class="search lux-shadow flex">
+          <input type="text" class="s-btn" placeholder="Search..."/>
+          <button class="search-btn s-btn">Search</button>
+      </div>
+      <h3>Popular tags<br></h3>
+      <div class="flow">
+          <li><button type="button">Brooklyn</button></li>
+          <li><button type="button">Las Vegas</button></li>
+          <li><button type="button">Chicago</button></li>
+          <li><button type="button">More</button></li>
+      </div>
+  </div>
+  <div class="hero-image"></div>
+</div>
+
+
+
+<!--Side by side area-->
+<div class="container">
+  <div class="loft">
+      <div class="loftarea">Sunny <br> Loft <br> Apartments</div>
+      <p class="area">From the rooftop terrace, <br> down to the first floor gym,<br> every detail of eight floors provides <br> amenities filled with convenience, class.</p>
+    <button class="view">View</button>
+  </div>
+
+  <div class="images-container">
+      <div class="image image1"></div>
+          <div class="image-text1">Brooklyn <br> 456 Properties</div>
+
+    <div class="image image2"></div> 
+      <div class="image-text2">Manhattan <br> 137 Properties</div>
+
+    <div class="image image3"></div> 
+      <div class="image-text3">Bronx <br> 89 Properties</div>
+
+    <div class="image image4"></div> 
+      <div class="image-text4">Queens <br> 249 Properties</div>
+  </div>
+
+</div>
+
+
+
+
+<!--Options area-->
+    <div class="big-font">Property Highlights</div>
+    <div class="row">
+      <div class="column">
+        <img src="pic1.jpeg" style="width:80%" class="centered-image">
+        <div class="property-info">
+          <button class="price" style="border: none;">$200,000</button>
+          <div class="location">
+            <i class="fas fa-map-marker-alt icon"></i> New York, NY
+          </div>
+          <div class="amenities">
+            <i class="fas fa-bed icon"></i> 2 rooms |
+            <i class="fas fa-bath icon"></i> 2 bathrooms |
+            <i class="fas fa-ruler icon"></i> 1,200 sq ft
+          </div>
+        </div>
+      </div>
+    
+      <div class="column">
+        <img src="pic2.jpeg" style="width:80%" class="centered-image">
+        <div class="property-info">
+          <button class="price" style="border: none;">$250,000</button>
+          <div class="location">
+            <i class="fas fa-map-marker-alt icon"></i> Los Angeles, CA
+          </div>
+          <div class="amenities">
+            <i class="fas fa-bed icon"></i> 3 rooms |
+            <i class="fas fa-bath icon"></i> 2 bathrooms |
+            <i class="fas fa-ruler icon"></i> 1,800 sq ft
+          </div>
+        </div>
+      </div>
+    
+      <div class="column">
+        <img src="pic3.jpeg" style="width:80%" class="centered-image">
+        <div class="property-info">
+          <button class="price" style="border: none;">$180,000</button>
+          <div class="location">
+            <i class="fas fa-map-marker-alt icon"></i> Chicago, IL
+          </div>
+          <div class="amenities">
+            <i class="fas fa-bed icon"></i> 2 rooms |
+            <i class="fas fa-bath icon"></i> 2 bathrooms |
+            <i class="fas fa-ruler icon"></i> 1,000 sq ft
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+<!--Traditional area-->
+<div class="caro">Traditional Apartments</div>
+<div class="slideshow-container">
+  <div class="mySlides fade">
+    <img src="c1.jpeg" width="600" height="400" class="another-centered-image">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="c2.jpeg" width="600" height="400" class="another-centered-image">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="c3.jpeg" width="600" height="400" class="another-centered-image">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="c4.jpeg" width="600" height="400" class="another-centered-image">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="c5.jpeg" width="600" height="400" class="another-centered-image">
+  </div>
+</div>
+
+  <div class="write">
+    New York is more than a small Island Manhattan.<br>
+    There are more districts that represent New York City,<br> who we will present below.<br><br>
+    <div class="location">
+      <i class="fas fa-map-marker-alt icon"></i> New York, NY<br>
+    </div>
+    <div class="amenities">
+      <i class="fas fa-bed icon"></i> 2 rooms |
+      <i class="fas fa-bath icon"></i> 2 bathrooms |
+      <i class="fas fa-ruler icon"></i> 1,200 sq ft
+    </div>
+    <br>
+    Price
+    <div class="money">
+      $125/month
+    </div>
+  </div>
+
+  <div class="slide">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+  </div>
+
+
+
+
+<!--Company aspects area-->
+<img src="keep1.jpeg" style="width:35%" class="new-image">
+<div class="aspect">Something About Our <br> Company</div><br>
+Browse the highest quality listings, apply online, sign your lease, and even pay your rent <br> from any device.<br><br>
+<div class="statistics">
+  <div class="statistic">
+    <div class="stat-number">15+</div>
+    <div class="stat-label">Years of Experience</div>
+  </div>
+  <div class="statistic">
+    <div class="stat-number">23</div>
+    <div class="stat-label">Qualified Realtors</div>
+  </div>
+  <div class="statistic">
+    <div class="stat-number">849</div>
+    <div class="stat-label">Best Properties</div>
+  </div>
+</div>
+<img src="keep2.jpeg" style="border-radius: 10px; margin-top: 10px; position: relative;" width="720" height="350">
+
+
+
+<!--Testimonials area -->
+<div class="help">Clients We Help</div>
+<div class="wrapper">
+  <div class="testimonial-container" id="testimonial-container"></div>
+  <button id="prev">&lt;</button>
+  <button id="next">&gt;</button>
+</div>
+
+
+<!--Footer area-->
+<div class="Footer">
+    <section>
+      <div class="FooterHeader">
+        <div class="Heading-1">A special and qualified service dedicated to luxury properties for rent</div>
+        <div class="Heading-2"><a href="#" style="text-decoration: none;color: #133b5c;">Dexico<span style="color: #3C6E71;">.</span></a></div>
+      </div>
+      <div class="FooterContent">
+        <div class="F-Content">
+          <div class="F-Link"><a href="#">– Propertys</a></div>
+          <div class="F-Link"><a href="#">– Agents</a></div>
+          <div class="F-Link"><a href="#">– Locations</a></div>
+          <div class="F-Link"><a href="#">– Clients Support</a></div>
+        </div>
+        <div class="F-Content">
+          <div class="F-Link"><a href="#">– Home</a></div>
+          <div class="F-Link"><a href="#">– About</a></div>
+          <div class="F-Link"><a href="#">– Blog</a></div>
+          <div class="F-Link"><a href="#">– Contacts</a></div>
+        </div>
+        <div class="F-Content">
+          <div class="Box-1">
+            <div class="F-Link" style="display: flex;align-items: center;"><i class="fa fa-map-marker-alt" style="color: #3C6E71;margin-right: 20px; font-size: 25px;"></i>LA, Vehiclua Street, 58</div>
+            <div class="F-Link" style="display: flex;align-items: center;"><i class="fa fa-phone" style="color: #3C6E71;margin-right: 20px; font-size: 25px;"></i>+91 1234567890</div>
+            <div class="F-Link" style="display: flex;align-items: center;"><i class="fa fa-envelope" style="color: hsl(191, 77%, 12%);margin-right: 20px; font-size: 25px;"></i>hello@merkulov.design</div>
+          </div>
+          <div class="Box-2" style="display: flex;align-items: center;">
+            <a href="#"><i class="fab fa-twitter" style="color: #3C6E71;margin-right: 10px;font-size: 35px;"></i></a>
+            <a href="#"><i class="fab fa-facebook" style="color: #3C6E71;margin-right: 10px;font-size: 35px;"></i></a>
+            <a href="#"><i class="fab fa-instagram" style="color: #3C6E71;font-size: 35px;"></i></a>  
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="FooterCredits">
+        <b>Merkulove © Dexico Template All rights reserved Copyrights 2020</b>
+      </div>
+    </section>
+  </div>
+  
+
+
+<!--trolley-->
+<div class="trolley-button show1 overlap">
+  <i class="fa fa-shopping-cart"></i>
+</div>
+
+
+
+
+<!--testimonial JS-->
+<script>
+  const testimonials = [
+    {
+      name: "Anna Keys",
+      job: "Happy client",
+      image: "image1.webp",
+      testimonial:
+        "An upside, still-widening consensus hypothesis of a housing-led broad economic recovery has taken meaningful hold of sentiment in the buyer-seller arena where it matters most—money for land.",
+    },
+    {
+      name: "Miranda Hobbs",
+      job: "Happy client",
+      image: "image2.jpeg",
+      testimonial:
+        "Looking for Hamptons pool days? How about a home right by the beach? No matter what you're looking for, you'll find it on Out East — a beautiful new way to find a home in the Hamptons.",
+    },
+    {
+      name: "Polina Podolski",
+      job: "Happy client",
+      image: "image3.webp",
+      testimonial:
+        "Home building's 2020 sling-shot trajectory—coming as it did amidst the shock and stress of the pandemic—defied gravity. It's one of American business and society's few feel-good stories in a bleak, topsy-turvy backdrop.",
+    }
+  ];
+  let i = 0;
+  let j = testimonials.length;
+  let testimonialContainer = document.getElementById("testimonial-container");
+  let nextBtn = document.getElementById("next");
+  let prevBtn = document.getElementById("prev");
+  let intervalId;
+
+  let moveToNextTestimonial = () => {
+    i = (i + 1) % j;
+    displayTestimonial();
+  };
+
+  let startSlideshow = () => {
+    intervalId = setInterval(moveToNextTestimonial, 3000); // Change the time interval as needed (in milliseconds)
+  };
+
+  let stopSlideshow = () => {
+    clearInterval(intervalId);
+  };
+
+  nextBtn.addEventListener("click", () => {
+    moveToNextTestimonial();
+    stopSlideshow(); // Stop automatic slideshow when user interacts
+  });
+
+  prevBtn.addEventListener("click", () => {
+    i = (j + i - 1) % j;
+    displayTestimonial();
+    stopSlideshow(); // Stop automatic slideshow when user interacts
+  });
+
+  let displayTestimonial = () => {
+    testimonialContainer.innerHTML = `
+      <p>${testimonials[i].testimonial}</p>
+      <img src=${testimonials[i].image}>
+      <h3>${testimonials[i].name}</h3>
+      <h6>${testimonials[i].job}</h6>
+    `;
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    displayTestimonial();
+    startSlideshow(); // Start the automatic slideshow when content is loaded
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") {
+      stopSlideshow();
+    } else if (document.visibilityState === "visible") {
+      startSlideshow();
+    }
+  });
+</script>
+
+
+
+<!-- slideshow JS-->
+<script>
+  let slideIndex = 0;
+  showSlides();
+  
+  
+  function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+  }
+</script>
+
+
+
+<!--Overlay toggle JS-->
+<script>
+   function toggle() {
+  var overlay = document.getElementById("myOverlay");
+  overlay.classList.toggle("show");
+}
+
+function closeNav() {
+  var overlay = document.getElementById("myOverlay");
+  overlay.classList.remove("show");
+}
+
+</script>
+
+
+
+<!-- transition1 JS for apartments-->
+<script>
+ window.onload = function() {
+    const container = document.querySelector('.left');
+    container.classList.add('loaded');
+  };
+</script>
+
+
+<!-- transition2 JS for aspects-->
+<script>
+function animateOnScroll() {
+    var aspectElement = document.querySelector('.aspect');
+    var statisticElements = document.querySelectorAll('.statistics .statistic');
+    
+    var aspectPosition = aspectElement.getBoundingClientRect().top;
+    var statisticPosition = statisticElements[0].getBoundingClientRect().top;
+    var windowHeight = window.innerHeight;
+    
+    if (aspectPosition < windowHeight) {
+      aspectElement.classList.add('show');
+    }
+    
+    if (statisticPosition < windowHeight) {
+      statisticElements.forEach(function(element) {
+        element.classList.add('show');
+      });
+    }
+  }
+
+  // Add event listeners to trigger animations
+  window.addEventListener('load', animateOnScroll);
+  window.addEventListener('scroll', animateOnScroll);
+</script>
+
+
+
+<!-- transition3 JS for sunny loft-->
+<script>
+function showElement(entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }
+
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5
+  };
+
+  const loftObserver = new IntersectionObserver(showElement, options);
+  const areaObserver = new IntersectionObserver(showElement, options);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const loftarea = document.querySelector('.loftarea');
+    const area = document.querySelector('.area');
+
+    loftObserver.observe(loftarea);
+    areaObserver.observe(area);
+  });
+</script>
+
+
+
+<!--trolley drop**-->
+<script>
+const scrollButton = document.getElementById("scrollButton");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {  // Change the threshold value as needed
+    scrollButton.classList.add("show1");
+  } else {
+    scrollButton.classList.remove("show1");
+  }
+});
+
+</script>
+
+
+</body>
+</html>

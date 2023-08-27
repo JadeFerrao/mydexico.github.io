@@ -1,0 +1,172 @@
+div class="container">
+        <div class="container">
+            <div class="row">
+            <div class="info-data">
+                <div class="card" >
+                    <div class="card-body">
+                        <div class="row g-3" style="margin-bottom: 2rem;">
+                            <div class="col-sm-7">
+                                <label for="inputEmail4" class="form-label">Location to Search
+                                </label>
+                              <input type="text" class="form-control" placeholder="Enter location to search" >
+                            </div>
+                    
+                            <div class="col-sm">
+                                <label for="inputEmail4" class="form-label">Price from
+                                </label>
+                              <input type="number" class="form-control" placeholder="$"  min="1" max="10000">
+                            </div>
+                    
+                            <div class="col-sm">
+                                <label for="inputEmail4" class="form-label">Price to
+                                </label>
+                              <input type="number" class="form-control" placeholder="$" min="1" max="10000">
+                            </div>       
+                        </div>
+                        <div class="row g-4" style="margin-bottom: 2rem;">
+                            <div class="col-sm">
+                                <label for="inputEmail4" class="form-label">Rooms from
+                                </label>
+                              <input type="number" class="form-control" placeholder="1" min="1" max="10">
+                            </div>
+                            <div class="col-sm">
+                                <label for="inputEmail4" class="form-label">Room to
+                                </label>
+                              <input type="number" class="form-control" placeholder="1" min="1" max="10">
+                            </div>
+                            <div class="col-sm">
+                                <label for="inputEmail4" class="form-label">Flor from
+                                </label>
+                              <input type="number" class="form-control" placeholder="1" min="1" max="10">
+                            </div>
+                            <div class="col-sm">
+                                <label for="inputEmail4" class="form-label">Flor to
+                                </label>
+                              <input type="number" class="form-control" placeholder="1" min="1" max="10">
+                            </div>
+                        </div>
+                        <div class="row g-3"style="margin-bottom: 2rem;">
+                            <div class="col-sm">
+                                <input type="checkbox" name="" id="">
+                                <label for="">House</label>
+                            </div> 
+                            <div class="col-sm">
+                                <input type="checkbox" name="" id="">
+                                <label for="">Apartment</label>
+                            </div> 
+                            <div class="col-sm">
+                                <label for="">Commercial</label>
+                                <input type="checkbox" name="" id="">
+                            </div> 
+                        </div>
+                        <button type="button" class="btn btn-success" style="float: right;position: relative;padding:0.5rem 2.5rem; font-size: 1.5rem;">Send</button><br>
+                    </div>
+                </div>
+            </div>
+       </div>
+    </div>
+        <div class="container-fluid" style="margin-bottom: 10rem;">
+            <h1 align="center" style="margin-bottom: 3rem; font-size: 3rem;color: #0f5132;">Property Highlights</h1>
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="images/th2.jpeg" style="transition: none;transform:none" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success">$765</button><br><br>
+                    <p class="gr"><i class='bx bxs-map icon' style="font-size:x-large;color:rgb(7, 115, 115)"></i>LA,
+                        Vehicula Street , 58</p>
+                </div>
+    
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="images/th2.jpeg" style="transition: none;transform:none" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success">$765</button><br><br>
+                    <p class="gr"><i class='bx bxs-map icon' style="font-size:x-large;color:rgb(7, 115, 115)"></i>LA,
+                        Vehicula Street , 58</p>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="images/th2.jpeg" style="transition: none;transform:none" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success">$765</button><br><br>
+                    <p class="gr"><i class='bx bxs-map icon' style="font-size:x-large;color:rgb(7, 115, 115)"></i>LA,
+                        Vehicula Street , 58</p>
+                </div>
+    
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="images/th2.jpeg" style="transition: none;transform:none" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success">$765</button><br><br>
+                    <p class="gr"><i class='bx bxs-map icon' style="font-size:x-large;color:rgb(7, 115, 115)"></i>LA,
+                        Vehicula Street , 58</p>
+                </div>
+    
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="images/th2.jpeg" style="transition: none;transform:none" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success">$765</button><br><br>
+                    <p class="gr"><i class='bx bxs-map icon' style="font-size:x-large;color:rgb(7, 115, 115)"></i>LA,
+                        Vehicula Street , 58</p>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="images/th2.jpeg" style="transition: none;transform:none" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success">$765</button><br><br>
+                    <p class="gr"><i class='bx bxs-map icon' style="font-size:x-large;color:rgb(7, 115, 115)"></i>LA,
+                        Vehicula Street , 58</p>
+                </div>
+    
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="images/th2.jpeg" style="transition: none;transform:none" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success">$765</button><br><br>
+                    <p class="gr"><i class='bx bxs-map icon' style="font-size:x-large;color:rgb(7, 115, 115)"></i>LA,
+                        Vehicula Street , 58</p>
+                </div>
+    
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="images/th2.jpeg" style="transition: none;transform:none" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success">$765</button><br><br>
+                    <p class="gr"><i class='bx bxs-map icon' style="font-size:x-large;color:rgb(7, 115, 115)"></i>LA,
+                        Vehicula Street , 58</p>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="images/th2.jpeg" style="transition: none;transform:none" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success">$765</button><br><br>
+                    <p class="gr"><i class='bx bxs-map icon' style="font-size:x-large;color:rgb(7, 115, 115)"></i>LA,
+                        Vehicula Street , 58</p>
+                </div>
+            </div>
+        </div>
+    </div>

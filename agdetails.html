@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"/>
+
+    <title>Agents</title>
+<style>
+                                                          /* Nav link */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}
+
+html {
+    font-size: 16px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1%;
+}
+
+.nav {
+    max-width: 1600px;
+    margin: 20px auto 8px auto;
+    align-items: center;
+    text-align: center;
+    position: sticky;
+    top: 0; /* Stick to the top of the viewport */
+    background-color: white; /* You can change this to match your design */
+    z-index: 1000; /* Adjust the z-index as needed */
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the list horizontally */
+    list-style: none;
+}
+
+ul li {
+    text-transform: capitalize;
+    margin: 0 30px; /* Add spacing between list items */
+    font-size: 1rem; /* Adjust the font size */
+}
+
+ul li::before {
+    content: "+";
+    margin-right: 5px;
+}
+
+
+.menu {
+    width: 100%; /* Take up the full width */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
+    margin-left: 10%;
+    cursor: pointer;
+}
+
+.toggle-btn {
+    display: flex;
+    font-size: 1.7rem;
+    cursor: pointer;
+    margin-left: auto;
+    align-items: center; 
+    justify-content: center;
+    width: 1.9rem; 
+    height: 1.9rem;
+    border-radius: 50%;
+}
+
+.log-box {
+    margin-right: auto;
+}
+
+.log-box h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+
+.dex{
+font-size: 25px;
+color: #204048;
+transition: transform 0.3s ease;
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+.dex:hover {
+  transform: scale(0.95);
+}
+
+
+                                                       /* Dropdown hover */
+
+.dropbtn {
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #8a8585;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.dropdown-content a {
+  color: rgb(254, 251, 251);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #34796c;
+    border-radius: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    border-radius: 10px;
+}
+
+
+
+
+                                                        /* Overlay toggle css */
+
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: rgba(12, 10, 10, 0.885); /* Changed overlay background color and opacity */
+  overflow-x: hidden;
+  transition: 0.5s;
+  z-index: 1000;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 65%; /* Changed from 65% to 50% */
+  left: 30%; /* Added to center horizontally */
+  transform: translate(-50%, -50%); /* Center both horizontally and vertically */
+  width: 80%;
+  max-width: 250px;
+  padding: 20px;
+  font-size: 15px; /* Slightly reduced font size from 20px to 18px */
+  color: #f9f5f5;
+  text-align: center;
+  margin-top:25px;
+}
+
+
+.overlay.show {
+  width: 50%; 
+}
+
+.overlay.show .overlay-content {
+  transform: translateX(0) translateY(-50%);
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 35px;
+  right: 15px;
+  font-size: 24px;
+  color: #faf7f7; /* Changed close button color */
+  cursor: pointer;
+}
+
+.overlay-content i {
+  margin-right: 10px;
+  font-size: 18px;
+  padding-top: 15%;
+}
+
+
+.overlay p {
+      font-size: 45px;
+      margin-bottom: 20px;
+      color: #f1f1f1;
+      padding-top: 10%;
+}
+
+.overlay iframe {
+      width: 80%;
+      max-width: 800px;
+      height: 250px;
+      border: 0;
+}
+
+.social{
+  color: white;
+  margin-top: 260px;
+  font-size: 40px;
+  margin-right: 50px;
+}
+
+
+
+                                                            /* Footer css */
+
+.Footer {
+    width: 100%;
+    height: 594.19px;
+    background-image: url('back.jpeg'); 
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+.Footer section {
+    width: 80%;
+    height: 514.19px;
+    margin-top: 80px;
+    padding: 10px;
+}
+
+.Footer section .FooterHeader {
+    width: 100%;
+    height: 87.188px;
+    margin-bottom: 80px;
+    display: flex;
+}
+
+.Footer section .FooterHeader .Heading-1 {
+    width: 746.66px;
+    height: auto;
+    padding: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 150px;
+    color: #133b5c;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.Footer section .FooterHeader .Heading-2 {
+    width: 322.53px;
+    height: auto;
+    padding: 10px;
+    font-size: 35px;
+    font-weight: 550;
+}
+
+.Footer section .FooterContent {
+    width: 100%;
+    height: 176px;
+    margin-bottom: 80px;
+    display: flex;
+}
+
+.Footer section .FooterContent .F-Content {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
+
+.Footer section .FooterContent .F-Content .F-Link {
+    margin-bottom: 20px;
+}
+
+.Footer section .FooterContent .F-Content .F-Link a {
+    text-decoration: none;
+    color: #133b5c;
+    font-weight: 500;
+    display: block;
+}
+
+.Footer section .FooterContent .F-Content .Box-1 .F-Link {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.Footer section .FooterContent .F-Content .Box-2 {
+    height: 100%;
+    height: 56px;
+}
+
+.Footer section .FooterContent .F-Content .Box-2 a {
+    margin-right: 10px;
+    font-size: 35px;
+    color: #3C6E71;
+}
+
+.Footer section .FooterCredits {
+    width: 100%;
+    height: 46px;
+    text-align: center;
+    color: #797a7e;
+}
+
+
+
+
+                                         
+                                                   /*Details area for agent*/
+ .contain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto; /* Smaller margins on both sides */
+    max-width: 1200px; /* Increased maximum width */
+    margin-top: 60px;
+}
+
+.image {
+    flex: 1;
+    padding: 5px; /* Reduced padding */
+    display: flex;
+    justify-content: center;
+}
+
+.text {
+    flex: 2;
+    padding: 5px; /* Reduced padding */
+}
+
+.profile-image {
+    width: auto;
+    height: auto;
+    max-height: 500px; /* Moderate max-height */
+    max-width: 100%; 
+}
+
+.name {
+    font-size: 32px; /* Slightly increased font size */
+    font-weight: bold;
+    color: #204048;
+}
+
+.number {
+    font-size: 26px; /* Slightly increased font size */
+    margin-top: 2px; /* Slightly reduced margin */
+    color: #204048;
+}
+
+.social-icons {
+    margin-top: 3px; /* Slightly reduced margin */
+}
+
+.social-icon {
+    display: inline-block;
+    margin-right: 6px; /* Slightly reduced margin */
+    font-size: 28px; /* Slightly increased font size */
+}
+
+.para {
+    margin-top: 12px; /* Slightly reduced margin */
+}
+
+
+
+.social{
+font-size: 30px;
+color: #204048;
+font-weight: bold;
+margin-top: 20px;
+cursor: pointer;
+}
+
+
+button {
+    background-color: #205767;
+    color: white;
+    padding: 20px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 10px; /* Add margin to separate the button from the paragraph */
+    align-self: flex-end; /* Align the button to the right within its container */
+}
+
+
+
+
+                                                      /* Option css */
+/* Clear float and create a new row */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.row{
+margin-bottom: 80px;
+
+}
+
+.column {
+  float: left;
+  width: calc(33.33% - 20px); /* Adjust width and margin */
+  margin: 0 10px; /* Add margin on both sides */
+  text-align: center;
+}
+
+.centered-image {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.centered-image:hover {
+  transform: scale(1.05);
+  filter: brightness(90%);
+}
+
+.center-text {
+  text-align: center;
+  font-size: 36px;
+  color: #101d55;
+  margin: 20px 0;
+}
+
+.big-font {
+  font-size: 46px;
+  text-align: center;
+  color: #101d55;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.property-info {
+  margin-top: 10px;
+  text-align: left;
+  margin-left: 40px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 18px;
+  color: #f6f8f9;
+  background-color: #3C6E71;
+  border-radius: 8px;
+  margin: 5px 10px 0;
+  padding: 5px 10px;
+}
+
+.location {
+  margin-top: 5px;
+  font-size: 26px;
+  color: green;
+  margin-left: 10px;
+}
+
+.amenities {
+  margin-top: 10px;
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<!--Nav area-->
+<div class="nav flex">
+    <div class="log-box">
+        <h2 class="dex">Dexico.</h2>
+    </div>
+    <div class="menu" id="menus">
+        <ul>
+            <div class="dropdown">
+                <a href="index.html"><li class="dropbtn">Home</li></a>
+                <div class="dropdown-content">
+                  <a href="#">Home 1</a>
+                  <a href="#">Home 2</a>
+                  <a href="#">Home 3</a>
+                </div>
+              </div>
+
+
+            <div class="dropdown">
+              <a href="property.html"><li class="dropbtn">Property</li></a>
+                <div class="dropdown-content">
+                  <a href="#">Property List</a>
+                  <a href="#">Property details</a>
+                  <a href="#">Property details Width</a>
+                  <a href="#">Agents</a>
+                  <a href="#">Agent details</a>
+                </div>
+              </div>
+
+
+            <div class="dropdown">
+              <a href="about.html"><li class="dropbtn">About</li></a>
+                <div class="dropdown-content">
+                  <a href="error.html">404</a>
+                </div>
+              </div>
+
+              
+              <div class="dropdown">
+                <a href="blogs.html"><li class="dropbtn">Blogs</li></a>
+                <div class="dropdown-content">
+                  <a href="#">Single Post</a>
+                </div>
+              </div>
+
+
+           <div class="dropdown">
+            <a href="contacts.html"><li class="dropbtn">Contacts</li></a>
+              </div>
+        </ul>
+        <span class="toggle-btn" onclick="toggle()">&#9776;</span>
+        <div id="myOverlay" class="overlay">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a>
+          <p>Lets Be Together</p>
+          <br>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6344.6987579136485!2d-122.01341128842799!3d37.33423650488766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb596e9e188fd%3A0x3b0d8391510688f0!2sApple%20Park!5e0!3m2!1sen!2sin!4v1691667033122!5m2!1sen!2sin" width="50%" height="250" style="border:0;" allowfullscreen=""  referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <br>
+          <div class="overlay-content">
+            <i class="fa fa-map-marker-alt"></i> LA, Vehicula Street, 58<br>
+            <i class="fa fa-phone"></i> +123 6897 8974<br>
+            <i class="fa fa-envelope"></i> hello@merkulov
+          </div>
+          <div class="social">
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-facebook"></i> 
+            <i class="fab fa-instagram"></i> 
+          </div>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<!--image-->
+<div class="container"  style="margin-left: 50px;">
+    <img class="image" src="top.jpeg" width="95%"/>
+    <div class="text1" style="position: absolute; top: 30%; font-size:45px; left: 16%; transform: translate(-50%, -50%); padding: 10px; color: #204048; font-weight: bold;">Agent Details</div>
+    <div class="text2" style="position: absolute; top: 35%; font-size:15px; left: 14%; transform: translate(-50%, -50%); padding: 10px; color: #205767; margin-top: 5px;">Home >> Property >> Agent Details</div>
+</div>
+
+<!--Details area-->
+<div class="contain">
+    <div class="image">
+        <img class="profile-image" src="ag.jpg" alt="Profile Image">
+    </div>
+    <div class="text">
+        <div class="name">Polina Podolski</div>
+        <div class="number">+123-456-7890</div>
+        <div class="social">
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-facebook"></i> 
+            <i class="fab fa-instagram"></i> 
+        </div>
+        <p class="para">And not only is that heart-breaking, but it has broad implications for the economy,” added Hamrick. “It’s not only a case of the virus causing an impact on lives and livelihoods, but it impacts our lives in other ways that don’t relate to health. Obviously, housing activity is key for the broader economy, and right now it may be one of the more positive impacts that is being seen. The housing market is performing better than other aspects of the economy
+        </p> <!-- Close the paragraph tag here -->
+        <button>Write</button> <!-- Move the button under the paragraph -->
+    </div>
+</div>
+
+
+
+<!--Options area-->
+<div class="big-font">Property Highlights</div>
+<div class="row">
+  <div class="column">
+    <img src="pic1.jpeg" style="width:80%" class="centered-image">
+    <div class="property-info">
+      <button class="price" style="border: none;">$200,000</button>
+      <div class="location">
+        <i class="fas fa-map-marker-alt icon"></i> New York, NY
+      </div>
+      <div class="amenities">
+        <i class="fas fa-bed icon"></i> 2 rooms |
+        <i class="fas fa-bath icon"></i> 2 bathrooms |
+        <i class="fas fa-ruler icon"></i> 1,200 sq ft
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <img src="pic2.jpeg" style="width:80%" class="centered-image">
+    <div class="property-info">
+      <button class="price" style="border: none;">$250,000</button>
+      <div class="location">
+        <i class="fas fa-map-marker-alt icon"></i> Los Angeles, CA
+      </div>
+      <div class="amenities">
+        <i class="fas fa-bed icon"></i> 3 rooms |
+        <i class="fas fa-bath icon"></i> 2 bathrooms |
+        <i class="fas fa-ruler icon"></i> 1,800 sq ft
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <img src="pic3.jpeg" style="width:80%" class="centered-image">
+    <div class="property-info">
+      <button class="price" style="border: none;">$180,000</button>
+      <div class="location">
+        <i class="fas fa-map-marker-alt icon"></i> Chicago, IL
+      </div>
+      <div class="amenities">
+        <i class="fas fa-bed icon"></i> 2 rooms |
+        <i class="fas fa-bath icon"></i> 2 bathrooms |
+        <i class="fas fa-ruler icon"></i> 1,000 sq ft
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--Footer area-->
+<div class="Footer">
+    <section>
+      <div class="FooterHeader">
+        <div class="Heading-1">A special and qualified service dedicated to luxury properties for rent</div>
+        <div class="Heading-2"><a href="#" style="text-decoration: none;color: #133b5c;">Dexico<span style="color: #3C6E71;">.</span></a></div>
+      </div>
+      <div class="FooterContent">
+        <div class="F-Content">
+          <div class="F-Link"><a href="#">– Propertys</a></div>
+          <div class="F-Link"><a href="#">– Agents</a></div>
+          <div class="F-Link"><a href="#">– Locations</a></div>
+          <div class="F-Link"><a href="#">– Clients Support</a></div>
+        </div>
+        <div class="F-Content">
+          <div class="F-Link"><a href="#">– Home</a></div>
+          <div class="F-Link"><a href="#">– About</a></div>
+          <div class="F-Link"><a href="#">– Blog</a></div>
+          <div class="F-Link"><a href="#">– Contacts</a></div>
+        </div>
+        <div class="F-Content">
+          <div class="Box-1">
+            <div class="F-Link" style="display: flex;align-items: center;"><i class="fa fa-map-marker-alt" style="color: #3C6E71;margin-right: 20px; font-size: 25px;"></i>LA, Vehiclua Street, 58</div>
+            <div class="F-Link" style="display: flex;align-items: center;"><i class="fa fa-phone" style="color: #3C6E71;margin-right: 20px; font-size: 25px;"></i>+91 1234567890</div>
+            <div class="F-Link" style="display: flex;align-items: center;"><i class="fa fa-envelope" style="color: hsl(191, 77%, 12%);margin-right: 20px; font-size: 25px;"></i>hello@merkulov.design</div>
+          </div>
+          <div class="Box-2" style="display: flex;align-items: center;">
+            <a href="#"><i class="fab fa-twitter" style="color: #3C6E71;margin-right: 10px;font-size: 35px;"></i></a>
+            <a href="#"><i class="fab fa-facebook" style="color: #3C6E71;margin-right: 10px;font-size: 35px;"></i></a>
+            <a href="#"><i class="fab fa-instagram" style="color: #3C6E71;font-size: 35px;"></i></a>  
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="FooterCredits">
+        <b>Merkulove © Dexico Template All rights reserved Copyrights 2020</b>
+      </div>
+    </section>
+  </div>
+  
+
+
+<!--Overlay toggle JS-->
+<script>
+    function toggle() {
+   var overlay = document.getElementById("myOverlay");
+   overlay.classList.toggle("show");
+ }
+ 
+ function closeNav() {
+   var overlay = document.getElementById("myOverlay");
+   overlay.classList.remove("show");
+ }
+ 
+</script>
+ 
+ 
+
+</body>
+</html>
