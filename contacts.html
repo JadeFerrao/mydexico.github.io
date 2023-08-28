@@ -233,91 +233,132 @@ transition: transform 0.3s ease;
 
                                                          /*Feedback area*/
 
-.new-container {
+.Element-3{
+    width: 100%;
+    height: 446.34px;
+    margin-bottom: 120px;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: center;
+}
+
+.Element-3 section{
+    width:80%;
+    height: 446.34px;
+    display: flex;
+}
+
+.Element-3 section .MessageBox{
+    width: 50%;
+    height: 446.34px;
     padding: 20px;
-    border: 1px solid #ccc;
-    gap: 40px;
-  }
+}
 
-  .left {
-    flex: 1;
-    margin-right: 10px;
-  }
+.Element-3 section .MessageBox .MessageHeader{
+    width: 100%;
+    height: 62.39px;
+    margin-bottom: 20px;
+    font-size: 52px;
+    font-weight: 400;
+    color: #133b5c;
+}
 
-  .form-group {
-    margin-bottom: 15px;
-    margin-left: 75px;
+.Element-3 section .MessageBox .MessageContent{
+    width: 100%;
+    height:78.39px;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.Element-3 section .MessageBox .MessageContent .MessageInputs{
+    width: 100%;
+    height: 78.39px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.Element-3 section .MessageBox .MessageContent .MessageInputs .Heading{
+    width: 100%;
+    height: 24px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.Element-3 section .MessageBox .MessageContent .MessageInputs input{
+    width: 100%;
+    height: 54.39px;
+    border-radius: 0;
+    border-color:#797a7e;
+    font-style: italic;
     
-  }
- 
-  .side-by-side {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px; /* Adjust this value for spacing between elements */
-  }
+}
 
-  .side-by-side label {
-    font-size: 25px;
-  }
+.Element-3 section .MessageBox .MessageContent .MessageInputs input[type=search]:focus{
+    border:1.9px solid black !important;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    color: #797a7e;
+    box-shadow: none;
+}
 
-  .side-by-side input {
-    flex: 1;
-    font-size: 20px; /* Adjust this value for input font size */
-    padding: 5px; /* Adjust this value for input padding */
-  }
+.Element-3 section .MessageBox .MessageBigBox{
+    width: 100%;
+    min-height: 145.56px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
-  #message {
-    width: 100%; /* Make the message textarea span the full width */
-    resize: vertical; /* Allow vertical resizing of the textarea */
-  }
-
-  input, textarea {
-    width: 20%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 10px;
-    margin: auto;
-  }
+.Element-3 section .MessageBox .MessageBigBox .Heading{
+    width: 100%;
+    height: 24px;
+    font-style: italic;
+    font-weight: 400;
+}
 
 
-  button {
-    background-color: #205767;
+.Element-3 section .MessageBox .MessageBigBox textarea{
+    width: 100%;
+    height: 121.56px;
+    border-radius: 0;
+    border-color: #797a7e;
+    font-style: italic;
+}
+
+.Element-3 section .MessageBox .MessageBigBox textarea:focus{
+    border-color: black;
+    box-shadow: none;
+}
+
+
+.Element-3 section .MessageBox .btn{
+    width: 169.05px;
+    height: 60px;
     color: white;
-    padding: 20px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    background-color: #3c6e71;
+    border-radius: 0;
+    border-color: #3c6e71;
     font-size: 20px;
-    display: flex;
-    justify-content: flex-end; /* Align the button to the right */
-    margin-left: 635px;
-  }
+    float: right;
+    border: none;
+}
 
+.Element-3 section .MessageBox .btn:hover{
+    border-color: #0f4c5c;
+    border-style: solid;
+    border-width: 2px;
+}
 
-  label {
-    display: block;
-    font-weight: bold;
-  }
+.Element-3 section .MessageBox .SubText{
+    width: 100%;
+    height: 48px;
+    color: #41444b;
+    margin-bottom: 40px;
+}
 
-
-  .right {
-    flex: 1;
-    margin-right: 45px;
-  }
-
-
-  .contact-info {
-    text-align: right;
-  }
-
-  .contact-info p {
-    margin: 5px 0;
-  }
+.Element-3 section .MessageBox .F-Content .Box-1{
+    margin-bottom: 30px;
+}
 
 
 
@@ -521,43 +562,47 @@ referrerpolicy="no-referrer-when-downgrade">
 
 
 <!--Feedback-->
-<div class="new-container">
-    <div class="left">
-        <h1 style="color: #204048; margin-bottom: 15px; margin-left: 70px;">Send Message</h1>
-        <div class="form-group">
-          <div class="side-by-side">
-            <label for="name" style="font-size: 25px;">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-
-            <label for="name" style="font-size: 25px;">Email</label>
-            <input type="email" id="email" name="email" placeholder="Your Email" required>
+<div class="Element-3">
+  <section>
+      <div class="MessageBox">
+          <div class="MessageHeader">Send Message</div>
+          <div class="MessageContent">
+              <div class="MessageInputs">
+                  <div class="Heading">Name</div>
+                  <input class="form-control me-2" type="search" placeholder="Name" aria-label="Search">
+              </div>
+              <div class="MessageInputs">
+                  <div class="Heading">Email</div>
+                  <input class="form-control me-2" type="search" placeholder="Email" aria-label="Search">
+              </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="message" style="font-size: 25px;">Message</label>
-          <textarea id="message" name="message" rows="8" placeholder="Your Message" required></textarea>
-        </div>
-        <button>Send</button>
+          <div class="MessageBigBox">
+              <div class="Heading">Message</div>
+              <textarea class="form-control" placeholder="Message" id="floatingTextarea"></textarea>
+          </div>
+          <button class="btn btn-outline-success" type="submit"> Send</button>
       </div>
-      
-    
-    <div class="right">
-      <h1 style="color: #204048;">Our Contacts</h1><br>
-      <p>Browse the highest quality listings, apply online, sign your lease, and even pay your rent from any device</p><br>
-      <div class="F-Content">
-        <div class="Box-1">
-          <div class="F-Link" style="display: flex;align-items: center; font-size: 15px; padding: 12px;"><i class="fa fa-map-marker-alt" style="color: #3C6E71;margin-right: 5px; font-size: 25px;"></i>LA, Vehiclua Street, 58</div>
-          <div class="F-Link" style="display: flex;align-items: center; font-size: 15px; padding: 12px;"><i class="fa fa-phone" style="color: #3C6E71;margin-right: 5px; font-size: 25px;"></i>+91 1234567890</div>
-          <div class="F-Link" style="display: flex;align-items: center; font-size: 15px; padding: 12px;"><i class="fa fa-envelope" style="color: hsl(191, 77%, 12%);margin-right: 5px; font-size: 25px;"></i>hello@merkulov.design</div>
-        </div>
-        <div class="Box-2" style="display: flex;align-items: center; padding: 12px;">
-          <a href="#"><i class="fab fa-twitter" style="color: #3C6E71;margin-right: 10px;font-size: 25px;"></i></a>
-          <a href="#"><i class="fab fa-facebook" style="color: #3C6E71;margin-right: 10px;font-size: 25px;"></i></a>
-          <a href="#"><i class="fab fa-instagram" style="color: #3C6E71;font-size: 25px;"></i></a>  
-        </div>
+      <div class="MessageBox">
+          <div class="MessageHeader">Our Contacts</div>
+          <div class="SubText">Browse the highest quality listings, apply online, sign your lease, and even pay your rent from any device</div>
+          <div class="F-Content">
+          <div class="Box-1">
+          <div>
+              <a href="#" style="display: flex;align-items: center; color: #205767;"><i class='fa fa-map-marker-alt' style="color: #3C6E71;margin-right: 25px; font-size: 25px; margin-bottom: 10px;"></i>LA, Vehiclua Street, 58</a>
+              <a href="#" style="display: flex;align-items: center; color: #205767;"><i class='fa fa-phone' style="color: #3C6E71;margin-right: 25px; font-size: 25px; margin-bottom: 10px;"></i>+91 1234567890</a>
+              <a href="#" style="display: flex;align-items: center; color: #205767;"><i class='fa fa-envelope' style="color: #3C6E71;margin-right: 25px; font-size: 25px; margin-bottom: 10px;"></i>hello@merkulov.design</a>
+          </div>
+          </div>
+          <div class="Box-2" style="display: flex;align-items: center;">
+          <i class='fab fa-twitter' style="color: #3C6E71;margin-right: 15px;font-size: 35px;"></i>
+          <i class='fab fa-facebook' style="color: #3C6E71;margin-right: 15px;font-size: 35px;"></i>
+          <i class='fab fa-instagram' style="color: #3C6E71;font-size: 35px;"></i>
+          </div>
+          </div>
       </div>
-    </div>
-  </div>
+  </section>
+</div>
+
 
 
 
