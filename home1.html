@@ -808,6 +808,63 @@ transition: transform 0.3s ease;
 
 
 
+.slideshow-container {
+    max-width: 850px;
+    position: relative;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+  
+  .slide {
+    display: none;
+    width: 100%;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .prev {
+    left: 0;
+    color: white;
+  }
+  
+  .next {
+    right: 0;
+    color: white;
+  }
+
+
+
+  .thumbnail-strip {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .thumbnail {
+    flex: 0 0 120px;
+    margin: 0 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+
+  .thumbnail img {
+    width: 100%;
+    height: auto;
+  }
+
 
 </style>
 </head>
@@ -1029,8 +1086,45 @@ transition: transform 0.3s ease;
   <div class="Home-2-Element-7">
     <section>
       <div class="Header"><p style="margin-bottom: 0;">Apartment With</p>Different Approach</div>
+      <div class="slideshow-container">
+        <div class="slide">
+          <img src="c1.jpeg" alt="Slide 1">
+        </div>
+        <div class="slide">
+          <img src="c2.jpeg" alt="Slide 2">
+        </div>
+        <div class="slide">
+          <img src="c3.jpeg" alt="Slide 3">
+        </div>
+        <div class="slide">
+          <img src="c4.jpeg" alt="Slide 3">
+        </div>
+        <div class="slide">
+          <img src="c5.jpeg" alt="Slide 3">
+        </div>
+        
+        <a class="prev" onclick="changeSlide(-1)">❮</a>
+        <a class="next" onclick="changeSlide(1)">❯</a>
+      </div>
       
 
+      <div class="thumbnail-strip">
+        <div class="thumbnail" onclick="showSlide(0)">
+          <img src="c1.jpeg" alt="Thumbnail 1">
+        </div>
+        <div class="thumbnail" onclick="showSlide(1)">
+          <img src="c2.jpeg" alt="Thumbnail 2">
+        </div>
+        <div class="thumbnail" onclick="showSlide(2)">
+          <img src="c3.jpeg" alt="Thumbnail 3">
+        </div>
+        <div class="thumbnail" onclick="showSlide(3)">
+          <img src="c4.jpeg" alt="Thumbnail 4">
+        </div>
+        <div class="thumbnail" onclick="showSlide(4)">
+          <img src="c5.jpeg" alt="Thumbnail 5">
+        </div>
+      </div>
 
  <!-- Home-2-Element-8 -->
   <div class="Home-2-Element-8">
@@ -1059,6 +1153,47 @@ transition: transform 0.3s ease;
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   
+
+<!--Slideshow js-->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    
+    function showSlide(index) {
+      currentSlide = index;
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+      slides[currentSlide].style.display = 'block';
+    }
+    
+    function changeSlide(n) {
+      currentSlide += n;
+      if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+      } else if (currentSlide >= slides.length) {
+        currentSlide = 0;
+      }
+      showSlide(currentSlide);
+    }
+    
+    function autoChangeSlide() {
+      changeSlide(1); // Move to the next slide
+    }
+    
+    // Start automatic slideshow change every 5 seconds
+    setInterval(autoChangeSlide, 5000);
+    
+    thumbnails.forEach((thumbnail, index) => {
+      thumbnail.addEventListener('click', () => showSlide(index));
+    });
+    
+    showSlide(currentSlide);
+  });
+</script>
+
 
 
 <!--Overlay toggle JS-->
