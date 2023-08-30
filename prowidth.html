@@ -603,6 +603,7 @@ transition: transform 0.3s ease;
                     <img src="s4.jpeg" alt="Slideshow Image 3">
                     <img src="s5.jpeg" alt="Slideshow Image 3">
                   </div>
+                  <div class="carousel-dots"></div>
               </div>
             </div>
             <div class="column">
@@ -691,21 +692,35 @@ transition: transform 0.3s ease;
     // JavaScript for slideshow
     const slideshowImages = document.querySelectorAll('.slideshow img');
     let currentSlide = 0;
-  
+
     function showSlide(index) {
-      slideshowImages.forEach(img => img.style.display = 'none');
-      slideshowImages[index].style.display = 'block';
+        slideshowImages.forEach(img => img.style.display = 'none');
+        slideshowImages[index].style.display = 'block';
+        updateActiveDot(index);
     }
-  
+
     function nextSlide() {
-      currentSlide = (currentSlide + 1) % slideshowImages.length;
-      showSlide(currentSlide);
+        currentSlide = (currentSlide + 1) % slideshowImages.length;
+        showSlide(currentSlide);
     }
-  
+
+    // Update active dot based on current slide
+    function updateActiveDot(activeIndex) {
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            if (index === activeIndex) {
+                dot.classList.add('active-dot');
+            } else {
+                dot.classList.remove('active-dot');
+            }
+        });
+    }
+
     // Start the slideshow
     showSlide(currentSlide);
     setInterval(nextSlide, 3000); // Change slide every 3 seconds
 </script>
+
   
 
 
