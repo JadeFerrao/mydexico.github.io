@@ -458,6 +458,61 @@ transition: transform 0.3s ease;
 
 
 
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 115%;
+  max-width: 1300px;
+  background-color: white;
+}
+
+.column {
+  flex: 1;
+  padding: 20px;
+}
+
+.image-strip {
+  display: flex;
+  flex-direction: column; /* Display images in a column */
+}
+
+.image-strip img {
+  width: 345px;
+  height: 95px;
+  margin-bottom: 10px; /* Add space between images */
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 400px;
+  height: 400px;
+  border: 1px solid #ddd;
+}
+
+.carousel {
+  display: flex;
+  width: 300%;
+  animation: slide 10s infinite linear;
+}
+
+.carousel-slide {
+  flex: 1;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-66.666%);
+  }
+}
 </style>
 </head>
 <body>
@@ -538,9 +593,29 @@ transition: transform 0.3s ease;
 <div class="Property-Width-Full-Details-Element-1">
       <div class="Sub-1">
         <div class="Sub-E-1">
-         
        
       <div class="Box-1">
+        <div class="container">
+            <div class="column">
+              <div class="carousel-container">
+                <div class="carousel">
+                  <img class="carousel-slide" src="s1.jpg" >
+                  <img class="carousel-slide" src="s2.jpeg" >
+                  <img class="carousel-slide" src="s3.jpg" >
+                  <img class="carousel-slide" src="s4.jpeg" >
+                  <img class="carousel-slide" src="s5.jpg" >
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="image-strip">
+                <img src="col.jpeg" alt="Image 1">
+                <img src="col1.jpeg" alt="Image 2">
+                <img src="col2.jpeg" alt="Image 3">
+              </div>
+            </div>
+          </div>
+
         <div class="LinkPath"><a href="index.html">Home</a> » <a href="">Templates</a> » Properties List</div>
         <div class="Header">Sunny Loft Appartment</div>
         <div class="Place">
@@ -615,16 +690,15 @@ transition: transform 0.3s ease;
  
 <!--Slideshow js-->
 <script>
-    const carousel = document.querySelector(".carousel");
 const carouselSlides = document.querySelectorAll(".carousel-slide");
 let currentSlide = 0;
 
 function showSlide(index) {
   carouselSlides.forEach((slide, i) => {
     if (i === index) {
-      slide.style.opacity = 1;
+      slide.style.display = "block";
     } else {
-      slide.style.opacity = 0;
+      slide.style.display = "none";
     }
   });
 }
@@ -634,14 +708,18 @@ function nextSlide() {
   showSlide(currentSlide);
 }
 
+// Hide all slides except the first one
+carouselSlides.forEach((slide, index) => {
+  if (index !== 0) {
+    slide.style.display = "none";
+  }
+});
+
 // Show the initial slide
 showSlide(currentSlide);
 
 // Start slideshow
 setInterval(nextSlide, 5000); // Change image every 5 seconds
-
-
-
 
 </script>
 
