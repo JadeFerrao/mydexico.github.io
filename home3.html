@@ -331,6 +331,90 @@ transition: transform 0.3s ease;
 
 
 
+
+
+                                                      /* Option css */
+/* Clear float and create a new row */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.column {
+  float: left;
+  width: calc(33.33% - 20px); /* Adjust width and margin */
+  margin: 0 10px; /* Add margin on both sides */
+  text-align: center;
+}
+
+.centered-image {
+  width: 100%;
+  border-radius: 5px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.centered-image:hover {
+  transform: scale(1.05);
+  filter: brightness(90%);
+}
+
+.center-text {
+  text-align: center;
+  font-size: 36px;
+  color: #101d55;
+  margin: 20px 0;
+}
+
+.big-font {
+  font-size: 46px;
+  text-align: center;
+  color: #101d55;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.property-info {
+  margin-top: 10px;
+  text-align: left;
+  margin-left: 40px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 18px;
+  color: #f6f8f9;
+  background-color: #3C6E71;
+  border-radius: 5px;
+  margin: 5px 10px 0;
+  padding: 5px 10px;
+}
+
+.location {
+  margin-top: 5px;
+  font-size: 26px;
+  color: green;
+  margin-left: 10px;
+}
+
+.amenities {
+  margin-top: 10px;
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+
+
+
+
+
+
 </style>
 </head>
 <body>
