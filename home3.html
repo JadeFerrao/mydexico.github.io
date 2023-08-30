@@ -443,7 +443,7 @@ transition: transform 0.3s ease;
 .Home-4-Element-1 section .PBox .Heading{
     width: 100%;
     height: 192px;
-    color: rgb(19,59,92);
+    color: #101d55;
     line-height: 96px;
     font-size: 80px;
     font-weight: 700;
@@ -453,6 +453,8 @@ transition: transform 0.3s ease;
     height: 48px;
     width: 100%;
     margin-bottom: 30px;
+    font-weight: bold;
+    color: #485055f4;
 }
 
 .Home-4-Element-1 section .PBox form .me-2{
@@ -517,29 +519,6 @@ transition: transform 0.3s ease;
     margin-bottom: 30px;
     color: rgb(65,68,75);
 }
-
-.Home-4-Element-2 section .Box .ViewButton{
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: flex-start;
-}
-
-.Home-4-Element-2 section .Box .ViewButton .btn{
-    width: 212.69px;
-    height: 60px;
-    border-radius: 0;
-    font-size: 20px;
-    background-color: #3C6E71;
-    border: none;
-    transition: 0.3s ease-in-out;
-}
-
-.Home-4-Element-2 section .Box .btn:hover{
-    transform: scale(0.9);
-    background-color: #0F4C5C;
-}
-
 
 
 /* Home-4-Element-3 */
@@ -612,6 +591,39 @@ transition: transform 0.3s ease;
     line-height: 15.6px;
     font-weight: 500;
 }
+
+.search {
+    margin-top: 20px;
+    margin-left: 100px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    position: relative;
+}
+
+.search input {
+    width: 2100%; /* Adjusted width */
+    border: 0;
+    background-color: white;
+    padding: 25px 40px;
+    font-size: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: -40px;
+}
+
+.search-btn {
+    width: 700%; /* Adjusted width */
+    border: 0;
+    background-color: #3C6E71;
+    color: #e7edef;
+    padding: 25px 10px;
+    font-size: 15px;
+    font-weight: 700;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+}
+
 </style>
 </head>
 <body>
@@ -694,10 +706,10 @@ transition: transform 0.3s ease;
         <div class="PBox">
             <div class="Heading">Apartments For Life</div>
             <div class="Text">In the heart of Brooklyn, in a vibrant neighborhood just east of Prospect Park, stands an eight-story, full-service, strikingly beautiful apartment building</div>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <div class="search lux-shadow flex">
+                <input type="text" class="s-btn" placeholder="Search..."/>
+                <button class="search-btn s-btn">Search</button>
+            </div>
         </div>
     </section>
 </div>
