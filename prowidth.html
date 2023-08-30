@@ -482,6 +482,11 @@ transition: transform 0.3s ease;
   width: 345px;
   height: 95px;
   margin-bottom: 10px; /* Add space between images */
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-strip img:hover {
+    transform: scale(0.95);
 }
 
 .carousel-container {
@@ -579,6 +584,8 @@ transition: transform 0.3s ease;
     </div>
 </div>
   
+
+
 <!-- Property-Width-Full-Details-Element-1 -->
 <div class="Property-Width-Full-Details-Element-1">
       <div class="Sub-1">
@@ -676,7 +683,7 @@ transition: transform 0.3s ease;
    overlay.classList.remove("show");
  }
  
- </script>
+</script>
  
  
 <!--Slideshow js-->
@@ -698,7 +705,7 @@ transition: transform 0.3s ease;
     // Start the slideshow
     showSlide(currentSlide);
     setInterval(nextSlide, 3000); // Change slide every 3 seconds
-  </script>
+</script>
   
 
 
