@@ -634,6 +634,20 @@ transition: transform 0.3s ease;
     background-color: #0F4C5C;
 }
 
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+}
+
+/* Create three equal columns that sits next to each other */
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
 </style>
 </head>
 <body>
@@ -719,7 +733,24 @@ transition: transform 0.3s ease;
 </div>
 
 
-
+<!--side images-->
+<div class="row">
+  <div class="column">
+    <img src="pic1x.jpeg" alt="Snow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="pic2x.jpeg" alt="Forest" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="pic3x.jpeg" alt="Mountains" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="pic4x.jpeg" alt="Mountains" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="pic5x.jpeg" alt="Mountains" style="width:100%">
+  </div>
+</div>
 
 
  <!-- Home-2-Element-1 -->
