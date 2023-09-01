@@ -446,7 +446,7 @@ transition: transform 0.3s ease;
     height: 124.78px;
     color: rgb(19,59,92);
     font-family: "Gothic A1", Sans-serif;
-    font-size: 55px;
+    font-size: 45px;
     font-weight: 540;
     line-height: 1.2em;
 }
@@ -549,9 +549,8 @@ transition: transform 0.3s ease;
 
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center the content horizontally */
   align-items: flex-start;
-  padding: 20px;
 }
 
 .content {
@@ -563,13 +562,16 @@ transition: transform 0.3s ease;
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center; /* Center the images horizontally */
+  margin-top: 10px; /* Adjust the gap between section text and slideshow */
 }
 
 .slideshow img {
-  max-width: 100%;
+  max-width: 100%; /* Adjust the maximum width as needed */
   height: auto;
   margin-bottom: 10px;
 }
+
 
 .ViewButton1{
     width: 100%;
@@ -693,6 +695,7 @@ transition: transform 0.3s ease;
     </section>
   </div>
 
+
 <!-- Home-2-Element-4 -->
   <div class="Home-2-Element-4">
     <section>
@@ -706,6 +709,7 @@ transition: transform 0.3s ease;
     </section>
   </div>
 
+
 <!--side slideshow-->
 <div class="container">
     <div class="content">
@@ -713,7 +717,7 @@ transition: transform 0.3s ease;
         <section>
           <div class="Head">
             <div class="Header"><p style="margin-bottom: 0;">Something About</p>Our Company</div>
-            <div class="SubHeader">New York is more than the small Island Manhattan. There are more districts that are representing New York City, who we will presented below</div>
+            <div class="SubHeader">New York is more than the small Island Manhattan. <br>There are more districts that are representing New York City, <br>who we will presented below</div>
           <div class="ViewButton1">
             <button class="btn btn-primary" style="color: #e7edef;" type="button">Propertys</button>
           </div>
@@ -722,15 +726,14 @@ transition: transform 0.3s ease;
     </div>
     <div class="slideshow">
       <!-- slideshow carousel -->
-      <img src="c1.jpeg" alt="Slideshow Image 1">
-      <img src="c2.jpeg" alt="Slideshow Image 2">
-      <img src="c3.jpeg" alt="Slideshow Image 3">
-      <img src="c4.jpeg" alt="Slideshow Image 4">
-      <img src="c5.jpeg" alt="Slideshow Image 5">
+      <img src="c1.jpeg" alt="Slideshow Image 1" width="500" height="600">
+      <img src="c2.jpeg" alt="Slideshow Image 2" width="500" height="600">
+      <img src="c3.jpeg" alt="Slideshow Image 3" width="500" height="600">
+      <img src="c4.jpeg" alt="Slideshow Image 4" width="500" height="600">
+      <img src="c5.jpeg" alt="Slideshow Image 5" width="500" height="600">
     </div>
 </div>
   
-
 
 <!--image grid area-->
 <div class="caro">Real Estate Agents</div>
