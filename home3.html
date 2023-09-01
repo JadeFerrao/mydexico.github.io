@@ -647,6 +647,63 @@ transition: transform 0.3s ease;
     cursor: pointer;
 }
 
+
+
+
+.container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.slideshow {
+  flex: 1;
+  overflow: hidden;
+  margin-left: 70px;
+}
+
+.slideshow img {
+  max-width: 80%;
+  height: auto;
+  display: none;
+}
+
+@keyframes fade {
+  from {
+    opacity: .4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.write {
+  margin-top: 90px;
+  font-size: 20px;
+  margin-right: 165px;
+  margin-bottom: 60px;
+}
+
+.write1 {
+  margin-top: 90px;
+  font-size: 20px;
+  margin-left: 45px;
+  margin-bottom: 60px;
+}
+
+.money {
+  font-size: 35px;
+  color: #101d55;
+}
+
+.slide {
+  text-align: center;
+  margin-top: 90px;
+  margin-right: 700px;
+  margin-bottom: 95px;
+}
+
+
 </style>
 </head>
 <body>
@@ -749,6 +806,97 @@ transition: transform 0.3s ease;
         </div>
       </div>
     </section>
+</div>
+
+
+<div class="container"><!--1s-->
+  <div class="slideshow">
+    <!-- slideshow carousel -->
+    <img src="c1.jpeg" alt="Slideshow Image 1">
+    <img src="c2.jpeg" alt="Slideshow Image 2">
+    <img src="c3.jpeg" alt="Slideshow Image 3">
+    <img src="c4.jpeg" alt="Slideshow Image 3">
+    <img src="c5.jpeg" alt="Slideshow Image 3">
+  </div>
+  
+  <div class="write">
+    New York is more than a small Island Manhattan.<br>
+    There are more districts that represent New York City,<br> who we will present below.<br><br>
+    <div class="location">
+      <i class="fas fa-map-marker-alt icon"></i> New York, NY<br>
+    </div>
+    <div class="amenities">
+      <i class="fas fa-bed icon"></i> 2 rooms |
+      <i class="fas fa-bath icon"></i> 2 bathrooms |
+      <i class="fas fa-ruler icon"></i> 1,200 sq ft
+    </div>
+    <br>
+    Price
+    <div class="money">
+      $125/month
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container"><!--2s-->
+  <div class="write1">
+    New York is more than a small Island Manhattan.<br>
+    There are more districts that represent New York City,<br> who we will present below.<br><br>
+    <div class="location">
+      <i class="fas fa-map-marker-alt icon"></i> New York, NY<br>
+    </div>
+    <div class="amenities">
+      <i class="fas fa-bed icon"></i> 2 rooms |
+      <i class="fas fa-bath icon"></i> 2 bathrooms |
+      <i class="fas fa-ruler icon"></i> 1,200 sq ft
+    </div>
+    <br>
+    Price
+    <div class="money">
+      $125/month
+    </div>
+  </div>
+  <div id="slideshow2" class="slideshow">
+    <!-- slideshow carousel for section 2 -->
+    <img src="grid1.jpeg" alt="Slideshow Image 1">
+    <img src="grid2.jpeg" alt="Slideshow Image 2">
+    <img src="grid3.jpeg" alt="Slideshow Image 3">
+    <img src="grid4.jpeg" alt="Slideshow Image 4">
+    <img src="design1.jpeg" alt="Slideshow Image 5">
+  </div>
+</div>
+
+
+
+<div class="container"><!--3s-->
+  <div id="slideshow3" class="slideshow">
+    <!-- slideshow carousel for section 3 -->
+    <img src="c1.jpeg" alt="Slideshow Image 1">
+    <img src="grid4.jpeg" alt="Slideshow Image 2">
+    <img src="c3.jpeg" alt="Slideshow Image 3">
+    <img src="grid3.jpeg" alt="Slideshow Image 4">
+    <img src="c5.jpeg" alt="Slideshow Image 5">
+  </div>
+  
+  <div class="write">
+    New York is more than a small Island Manhattan.<br>
+    There are more districts that represent New York City,<br> who we will present below.<br><br>
+    <div class="location">
+      <i class="fas fa-map-marker-alt icon"></i> New York, NY<br>
+    </div>
+    <div class="amenities">
+      <i class="fas fa-bed icon"></i> 2 rooms |
+      <i class="fas fa-bath icon"></i> 2 bathrooms |
+      <i class="fas fa-ruler icon"></i> 1,200 sq ft
+    </div>
+    <br>
+    Price
+    <div class="money">
+      $125/month
+    </div>
+  </div>
 </div>
 
 
@@ -888,6 +1036,81 @@ transition: transform 0.3s ease;
 </script>
  
  
+
+<!--Slideshow js-->
+<script>
+ // JavaScript for slideshow
+document.addEventListener('DOMContentLoaded', function () {
+  const slideshowContainer = document.querySelector('.slideshow');
+  const slideshowImages = slideshowContainer.querySelectorAll('img');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slideshowImages.forEach(img => img.style.display = 'none');
+    slideshowImages[index].style.display = 'block';
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slideshowImages.length;
+    showSlide(currentSlide);
+  }
+
+  // Start the slideshow
+  showSlide(currentSlide);
+  setInterval(nextSlide, 3000); // Change slide every 3 seconds
+});
+
+</script>
+
+<script>
+  // JavaScript for slideshow 2
+document.addEventListener('DOMContentLoaded', function () {
+  const slideshowContainer = document.querySelector('#slideshow2');
+  const slideshowImages = slideshowContainer.querySelectorAll('img');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slideshowImages.forEach(img => img.style.display = 'none');
+    slideshowImages[index].style.display = 'block';
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slideshowImages.length;
+    showSlide(currentSlide);
+  }
+
+  // Start the slideshow
+  showSlide(currentSlide);
+  setInterval(nextSlide, 3000); // Change slide every 3 seconds
+});
+
+</script>
+
+<script>
+  // JavaScript for slideshow 3
+document.addEventListener('DOMContentLoaded', function () {
+  const slideshowContainer = document.querySelector('#slideshow3');
+  const slideshowImages = slideshowContainer.querySelectorAll('img');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slideshowImages.forEach(img => img.style.display = 'none');
+    slideshowImages[index].style.display = 'block';
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slideshowImages.length;
+    showSlide(currentSlide);
+  }
+
+  // Start the slideshow
+  showSlide(currentSlide);
+  setInterval(nextSlide, 3000); // Change slide every 3 seconds
+});
+
+</script>
+
+
 
 </body>
 </html>
