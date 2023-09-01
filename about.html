@@ -541,6 +541,60 @@ transition: transform 0.3s ease;
 }
 
 
+
+
+
+
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.content {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.slideshow {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.slideshow img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.ViewButton1{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 120px;
+}
+
+ .ViewButton1 .btn{
+    width: 212.69px;
+    height: 60px;
+    border-radius: 0;
+    font-size: 20px;
+    background-color: #3C6E71;
+    border: none;
+    transition: 0.3s ease-in-out;
+    margin-left: 10px;
+}
+
+.btn:hover{
+    transform: scale(0.9);
+    background-color: #0F4C5C;
+}
+
 </style>
 </head>
 <body>
@@ -652,8 +706,30 @@ transition: transform 0.3s ease;
     </section>
   </div>
 
-
-
+<!--side slideshow-->
+<div class="container">
+    <div class="content">
+      <div class="Home-2-Element-3">
+        <section>
+          <div class="Head">
+            <div class="Header"><p style="margin-bottom: 0;">Something About</p>Our Company</div>
+            <div class="SubHeader">New York is more than the small Island Manhattan. There are more districts that are representing New York City, who we will presented below</div>
+          <div class="ViewButton1">
+            <button class="btn btn-primary" style="color: #e7edef;" type="button">Propertys</button>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="slideshow">
+      <!-- slideshow carousel -->
+      <img src="c1.jpeg" alt="Slideshow Image 1">
+      <img src="c2.jpeg" alt="Slideshow Image 2">
+      <img src="c3.jpeg" alt="Slideshow Image 3">
+      <img src="c4.jpeg" alt="Slideshow Image 4">
+      <img src="c5.jpeg" alt="Slideshow Image 5">
+    </div>
+</div>
+  
 
 
 <!--image grid area-->
@@ -758,6 +834,27 @@ transition: transform 0.3s ease;
 </script>
  
  
+<!--Slideshow js-->
+<script>
+  // JavaScript for slideshow
+  const slideshowImages = document.querySelectorAll('.slideshow img');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slideshowImages.forEach(img => img.style.display = 'none');
+    slideshowImages[index].style.display = 'block';
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slideshowImages.length;
+    showSlide(currentSlide);
+  }
+
+  // Start the slideshow
+  showSlide(currentSlide);
+  setInterval(nextSlide, 3000); // Change slide every 3 seconds
+</script>
+
 
 </body>
 </html>
