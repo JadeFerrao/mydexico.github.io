@@ -653,6 +653,7 @@ transition: transform 0.3s ease;
   width: 100%;
   max-width: 300px; /* Adjust the maximum width as needed */
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .overlay {
@@ -669,6 +670,7 @@ transition: transform 0.3s ease;
   justify-content: center;
   align-items: center;
   font-weight: bold;
+  transition: opacity 0.3s ease;
 }
 
 /* Style for the text inside the overlay */
@@ -680,6 +682,18 @@ transition: transform 0.3s ease;
 .column:hover .overlay {
   opacity: 1;
 }
+
+.zoomable-image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease; /* Add a transition for smooth zoom effect */
+  transform-origin: center center;
+}
+
+.column:hover .zoomable-image {
+  transform: scale(1.1); /* Adjust the scale factor for zooming in */
+}
+
 </style>
 </head>
 <body>
@@ -771,31 +785,31 @@ transition: transform 0.3s ease;
     <div class="overlay">
       <div class="overlay-text">sunny propertys</div>
     </div>
-    <img src="x1.jpeg" style="width:100%">
+    <img src="x1.jpeg" class="zoomable-image" style="width:100%">
   </div>
   <div class="column">
     <div class="overlay">
       <div class="overlay-text">perfect tools</div>
     </div>
-    <img src="x2.jpeg" style="width:100%">
+    <img src="x2.jpeg" class="zoomable-image" style="width:100%">
   </div>
   <div class="column">
     <div class="overlay">
       <div class="overlay-text">search in click</div>
     </div>
-    <img src="x3.jpeg" style="width:100%">
+    <img src="x3.jpeg" class="zoomable-image" style="width:100%">
   </div>
   <div class="column">
     <div class="overlay">
       <div class="overlay-text">perfect place</div>
     </div>
-    <img src="x4.jpeg" style="width:100%">
+    <img src="x4.jpeg" class="zoomable-image" style="width:100%">
   </div>
   <div class="column">
     <div class="overlay">
       <div class="overlay-text">explore features</div>
     </div>
-    <img src="x5.jpeg" style="width:100%">
+    <img src="x5.jpeg" class="zoomable-image" style="width:100%">
   </div>
 </div>
 
