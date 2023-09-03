@@ -779,6 +779,7 @@ transition: transform 0.3s ease;
 
 .column {
   flex: 1;
+  padding: auto;
 }
 
 .image-strip {
@@ -796,6 +797,21 @@ transition: transform 0.3s ease;
 .image-strip img:hover {
     transform: scale(0.95);
 }
+
+
+.slideshow {
+      flex: 1;
+      overflow: hidden;
+      margin-left: 10px;
+    }
+
+    .slideshow img {
+      max-width: 100%;
+      height: auto;
+      display: none;
+    }
+
+
 </style>
 </head>
 <body>
@@ -908,9 +924,20 @@ transition: transform 0.3s ease;
       <div class="AboutBox">
         <div class="column">
           <div class="image-strip">
-            <img src="s1.jpeg" alt="Image 1">
-            <img src="s2.jpeg" alt="Image 2">
-            <img src="col2.jpeg" alt="Image 3">
+            <img src="x1.jpeg" alt="Image 1">
+            <img src="x2.jpeg" alt="Image 2">
+            <img src="x3.jpeg" alt="Image 3">
+          </div>
+        </div>
+        <div class="AboutBox">
+          <div class="carousel-container">
+            <div class="slideshow">
+                <!-- slideshow carousel -->
+                <img src="pic1.jpeg" alt="Slideshow Image 1" >
+                <img src="pic1.jpeg" alt="Slideshow Image 2" >
+                <img src="pic3.jpeg" alt="Slideshow Image 3" >
+              </div>
+              <div class="carousel-dots"></div>
           </div>
         </div>
       </div>
