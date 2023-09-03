@@ -775,6 +775,27 @@ transition: transform 0.3s ease;
     font-weight: 500;
 }
 
+
+
+.column {
+  flex: 1;
+}
+
+.image-strip {
+  display: flex;
+  flex-direction: column; /* Display images in a column */
+}
+
+.image-strip img {
+  width: 145px;
+  height: 95px;
+  margin-bottom: 10px; /* Add space between images */
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-strip img:hover {
+    transform: scale(0.95);
+}
 </style>
 </head>
 <body>
@@ -883,6 +904,15 @@ transition: transform 0.3s ease;
               </div>
           </div>
           
+      </div>
+      <div class="AboutBox">
+        <div class="column">
+          <div class="image-strip">
+            <img src="s1.jpeg" alt="Image 1">
+            <img src="s2.jpeg" alt="Image 2">
+            <img src="col2.jpeg" alt="Image 3">
+          </div>
+        </div>
       </div>
   </section>
 </div>
