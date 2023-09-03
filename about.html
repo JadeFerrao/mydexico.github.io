@@ -1094,5 +1094,106 @@ transition: transform 0.3s ease;
 </script>
 
 
+<!--middle js-->
+<script>
+  Trans = document.querySelector('.About-Element-1');
+  Trans1 = document.querySelector('.About-Element-2');
+  Trans2 = document.querySelector('.About-Element-3');
+  Trans3 = document.querySelector('.About-Element-4');
+  Trans4 = document.querySelector('.About-Element-5');
+
+window.onscroll = () => {
+// console.log(Trans);
+let top = window.scrollY;
+let offset = Trans.offsetTop - 600;
+console.log(
+'top:', top,
+'offset:', offset
+);
+if(top>=offset){
+// console.log('In:',Trans.childNodes[1].childNodes[5].childNodes[1].childNodes[1].childNodes[1].classList.add('active'));
+Trans.childNodes[1].childNodes[1].childNodes[1].childNodes[1].classList.add('active');
+Trans.childNodes[1].childNodes[1].childNodes[1].childNodes[3].classList.add('active');
+Trans.childNodes[1].childNodes[3].childNodes[1].childNodes[1].classList.add('active');
+Trans.childNodes[1].childNodes[3].childNodes[1].childNodes[3].classList.add('active');
+Trans.childNodes[1].childNodes[3].childNodes[1].childNodes[5].classList.add('active');
+Trans.childNodes[1].childNodes[5].childNodes[1].childNodes[1].childNodes[1].classList.add('active');
+Trans.childNodes[1].childNodes[5].childNodes[1].childNodes[1].childNodes[3].classList.add('active');
+Trans.childNodes[1].childNodes[5].childNodes[1].childNodes[1].childNodes[5].classList.add('active');
+}
+
+top = window.scrollY;
+offset = Trans1.offsetTop - 600;
+console.log(
+'top:', top,
+'offset:', offset
+);
+
+if(top>=offset){
+console.log('In:',Trans1.childNodes[1].childNodes[1].classList.add('active'));
+Trans1.childNodes[1].childNodes[1].classList.add('active');
+Trans1.childNodes[3].childNodes[1].classList.add('active');
+Trans1.childNodes[5].childNodes[1].classList.add('active');
+Trans1.childNodes[7].childNodes[1].classList.add('active');
+Trans1.childNodes[9].childNodes[1].classList.add('active');
+}
+
+top = window.scrollY;
+offset = Trans2.offsetTop - 600;
+console.log(
+'top:', top,
+'offset:', offset
+);
+
+if(top>=offset && top < 1800){
+// console.log('In:',Trans2.childNodes[1].childNodes[5].childNodes[1].style.transform="scale("+ (top/926) +")");
+Trans2.childNodes[1].childNodes[1].classList.add('active');
+Trans2.childNodes[1].childNodes[3].classList.add('active');
+Trans2.childNodes[1].childNodes[5].classList.add('active');
+Trans2.childNodes[1].childNodes[5].childNodes[1].style.transform="scale("+ (top/926) +")"
+}
+
+top = window.scrollY;
+offset = Trans3.offsetTop - 600;
+console.log(
+'top:', top,
+'offset:', offset
+);
+
+if(top>=offset){
+// console.log('In:',Trans3.childNodes[1].childNodes[1].classList.add('active'));
+Trans3.childNodes[1].childNodes[1].classList.add('active');
+Trans3.childNodes[1].childNodes[3].classList.add('active');
+}
+
+top = window.scrollY;
+offset = Trans4.offsetTop - 600;
+console.log(
+'top:', top,
+'offset:', offset
+);
+
+if(top>=offset){
+// console.log('In:',Trans4.childNodes[1].childNodes[3].childNodes[1].childNodes[1].childNodes[0].childNodes[1].classList.add('active'));
+    Trans4.childNodes[1].childNodes[1].classList.add('active');
+    Trans4.childNodes[1].childNodes[3].childNodes[1].childNodes[1].childNodes[0].classList.add('active');
+    Trans4.childNodes[1].childNodes[3].childNodes[3].childNodes[1].childNodes[0].classList.add('active');
+    Trans4.childNodes[1].childNodes[3].childNodes[5].childNodes[1].childNodes[0].classList.add('active');
+    Trans4.childNodes[1].childNodes[3].childNodes[7].childNodes[1].childNodes[0].classList.add('active');
+    Trans4.childNodes[1].childNodes[3].childNodes[1].childNodes[3].classList.add('active');
+    Trans4.childNodes[1].childNodes[3].childNodes[3].childNodes[3].classList.add('active');
+    Trans4.childNodes[1].childNodes[3].childNodes[5].childNodes[3].classList.add('active');
+    Trans4.childNodes[1].childNodes[3].childNodes[7].childNodes[3].classList.add('active');
+    Trans4.childNodes[1].childNodes[3].childNodes[1].childNodes[5].classList.add('active');
+    Trans4.childNodes[1].childNodes[3].childNodes[3].childNodes[5].classList.add('active');
+    Trans4.childNodes[1].childNodes[3].childNodes[5].childNodes[5].classList.add('active');
+    Trans4.childNodes[1].childNodes[3].childNodes[7].childNodes[5].classList.add('active');
+    Trans4.childNodes[1].childNodes[3].childNodes[1].childNodes[1].childNodes[0].childNodes[1].classList.add('active');
+    Trans4.childNodes[1].childNodes[3].childNodes[3].childNodes[1].childNodes[0].childNodes[1].classList.add('active');
+    Trans4.childNodes[1].childNodes[3].childNodes[5].childNodes[1].childNodes[0].childNodes[1].classList.add('active');
+    Trans4.childNodes[1].childNodes[3].childNodes[7].childNodes[1].childNodes[0].childNodes[1].classList.add('active');
+    }
+}
+</script>
 </body>
 </html>
