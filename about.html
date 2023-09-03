@@ -935,6 +935,7 @@ transition: transform 0.3s ease;
                 <img src="pic1.jpeg" alt="Slideshow Image 2" >
                 <img src="pic3.jpeg" alt="Slideshow Image 3" >
                 <img src="pic4.jpeg" alt="Slideshow Image 3" >
+                <img src="pic5.jpeg" alt="Slideshow Image 3" >
               </div>
           </div>
         </div>
@@ -1180,12 +1181,10 @@ transition: transform 0.3s ease;
   // Initially, show the first slide
   showSlide(currentIndex);
 
-  // Add event listeners for next and previous buttons (you can add your own buttons)
-  document.querySelector("#nextButton").addEventListener("click", nextSlide);
-  document.querySelector("#prevButton").addEventListener("click", prevSlide);
-
-  // Optionally, you can add automatic slideshow functionality
-  // setInterval(nextSlide, 2000); // Advance to the next slide every 2 seconds
+  // Start the slideshow
+  showSlide(currentSlide);
+  setInterval(nextSlide, 2000); // Change slide every 3 seconds
+</script>
 </script>
 
 
