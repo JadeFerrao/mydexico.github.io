@@ -689,6 +689,91 @@ transition: transform 0.3s ease;
   transform: scale(1.1); /* Adjust the scale factor for zooming in */
 }
 
+
+
+
+/* About-Element-1 */
+.About-Element-1{
+    width: 100%;
+    height: 424.5px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 120px;
+}
+
+.About-Element-1 section{
+    width: 1140px;
+    height: 100%;
+    display: flex;
+}
+
+.About-Element-1 section .AboutBox{
+    width: calc(100% / 3);
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.About-Element-1 section .AboutBox .Container{
+    width: 100%;
+    height: auto;
+}
+
+.About-Element-1 section .AboutBox .Container .Header{
+    width: 100%;
+    height:100.78px;
+    color: rgb(19,59,92);
+    margin-bottom: 20px;
+    font-size: 28px;
+    line-height: 33.6px;
+    font-weight: 500;
+    transform: translateY(-50%);
+    transition: 1s;
+}
+
+.About-Element-1 section .AboutBox .Container .Header.active,
+.About-Element-1 section .AboutBox .Container .Text.active,
+.About-Element-1 section .AboutBox .Container .MiniContainers.active{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.About-Element-1 section .AboutBox .Container .Text{
+    width: 100%;
+    height: 72px;
+    color: rgb(65,68,75);
+    transform: translateY(50%);
+    transition: 1s;
+}
+
+.About-Element-1 section .AboutBox .Container .MiniContainers{
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    transform: translateY(-100%);
+    transition: 1s;
+    opacity: 0;
+}
+
+.About-Element-1 section .AboutBox .Container .MiniContainers .Icon{
+    width: 46px;
+    height: 46px;
+    margin-right: 10px;
+    background-position: center center;
+    background-size: cover;
+}
+
+.About-Element-1 section .AboutBox .Container .MiniContainers .IconHeading{
+    width: calc(100% - 10px - 46px);
+    height: auto;
+    color: rgb(19,59,92);
+    line-height: 24px;
+    font-weight: 500;
+}
+
 </style>
 </head>
 <body>
@@ -764,13 +849,40 @@ transition: transform 0.3s ease;
   </div>
 </div>
 
-
-
 <!--image-->
 <div class="container"  style="margin-left: 50px;">
     <img class="image" src="top.jpeg" width="95%"/>
     <div class="text1" style="position: absolute; top: 40%; font-size:45px; left: 14%; transform: translate(-50%, -50%); padding: 10px; color: #204048; font-weight: bold;">About Us</div>
     <div class="text2" style="position: absolute; top: 45%; font-size:15px; left: 12%; transform: translate(-50%, -50%); padding: 10px; color: #205767; margin-top: 5px;">Home >> About Us</div>
+</div>
+
+<!-- About-Element-1 -->
+<div class="About-Element-1">
+  <section>
+      <div class="AboutBox">
+          <div class="Container">
+              <div class="Header">A special and qualified service dedicated to luxury properties for rent</div>
+              <div class="Text">This splendid 170 sq m apartment that we offer for rent in the heart of Milan, in Corso Buenos Aires, is located on the third floor</div>
+          </div>
+      </div>
+      <div class="AboutBox">
+          <div class="Container">
+              <div class="MiniContainers">
+                  <div class="Icon" style="background-image: url(b1.png);"></div>
+                  <div class="IconHeading">
+                      We help you find a new home by offering a smart real estate experience​</div>
+              </div>
+              <div class="MiniContainers">
+                  <div class="Icon" style="background-image: url(b2.png);"></div>
+                  <div class="IconHeading">Find an experienced agent who knows your market best</div>
+              </div>
+              <div class="MiniContainers">
+                  <div class="Icon" style="background-image: url(b3.png);"></div>
+                  <div class="IconHeading">Millions of houses and apartments in your favourite cities</div>
+              </div>
+          </div>
+      </div>
+  </section>
 </div>
 
 
