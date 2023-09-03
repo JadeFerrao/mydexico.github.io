@@ -806,7 +806,7 @@ transition: transform 0.3s ease;
     }
 
     .slideshow3 img {
-      max-width: 100%;
+      width: 300%;
       height: auto;
       display: none;
       margin-top: 20px;
@@ -931,12 +931,12 @@ transition: transform 0.3s ease;
           </div>
         </div>
         <div class="AboutBox">
-          <div class="carousel-container">
             <div class="slideshow3">
                 <!-- slideshow carousel -->
                 <img src="pic1.jpeg" alt="Slideshow Image 1" >
                 <img src="pic1.jpeg" alt="Slideshow Image 2" >
                 <img src="pic3.jpeg" alt="Slideshow Image 3" >
+                <img src="pic4.jpeg" alt="Slideshow Image 3" >
               </div>
           </div>
         </div>
@@ -1131,7 +1131,7 @@ transition: transform 0.3s ease;
 </script>
  
  
-<!--Slideshow js-->
+<!--Slideshow js1-->
 <script>
   // JavaScript for slideshow
   const slideshowImages = document.querySelectorAll('.slideshow img');
@@ -1150,6 +1150,44 @@ transition: transform 0.3s ease;
   // Start the slideshow
   showSlide(currentSlide);
   setInterval(nextSlide, 3000); // Change slide every 3 seconds
+</script>
+
+<!--Slideshow js2-->
+<script>
+  // JavaScript code for the slideshow
+  let currentIndex = 0;
+  const slides = document.querySelectorAll(".slideshow3 img");
+  const maxIndex = slides.length - 1;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      if (i === index) {
+        slide.style.display = "block";
+      } else {
+        slide.style.display = "none";
+      }
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % (maxIndex + 1);
+    showSlide(currentIndex);
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+  }
+
+  // Initially, show the first slide
+  showSlide(currentIndex);
+
+  // Add event listeners for next and previous buttons (you can add your own buttons)
+  document.querySelector("#nextButton").addEventListener("click", nextSlide);
+  document.querySelector("#prevButton").addEventListener("click", prevSlide);
+
+  // Optionally, you can add automatic slideshow functionality
+  // setInterval(nextSlide, 2000); // Advance to the next slide every 2 seconds
 </script>
 
 
@@ -1254,5 +1292,7 @@ if(top>=offset){
     }
 }
 </script>
+
+
 </body>
 </html>
