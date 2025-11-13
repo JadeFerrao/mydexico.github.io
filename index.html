@@ -1,1639 +1,1137 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Apartment</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"/>
-<style>
-
-
-                                                       /* Nav link */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-    text-decoration: none;
-}
-
-html {
-    font-size: 16px;
-}
-
-.flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
-
-.inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1%;
-}
-
-.nav {
-    max-width: 1600px;
-    margin: 20px auto 8px auto;
-    align-items: center;
-    text-align: center;
-    position: sticky;
-    top: 0; /* Stick to the top of the viewport */
-    background-color: white; /* You can change this to match your design */
-    z-index: 1000; /* Adjust the z-index as needed */
-}
-
-ul {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center the list horizontally */
-    list-style: none;
-}
-
-ul li {
-    text-transform: capitalize;
-    margin: 0 30px; /* Add spacing between list items */
-    font-size: 1rem; /* Adjust the font size */
-}
-
-ul li::before {
-    content: "+";
-    margin-right: 5px;
-}
-
-
-.menu {
-    width: 100%; /* Take up the full width */
-    display: flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center;
-    margin-left: 10%;
-    cursor: pointer;
-}
-
-.toggle-btn {
-    display: flex;
-    font-size: 1.7rem;
-    cursor: pointer;
-    margin-left: auto;
-    align-items: center; 
-    justify-content: center;
-    width: 1.9rem; 
-    height: 1.9rem;
-    border-radius: 50%;
-}
-
-.log-box {
-    margin-right: auto;
-}
-
-.log-box h2 {
-    font-size: 1.6rem;
-    font-weight: 800;
-}
-
-
-.dex{
-font-size: 25px;
-color: #204048;
-transition: transform 0.3s ease;
-  display: inline-block;
-  padding: 10px 20px;
-}
-
-.dex:hover {
-  transform: scale(0.95);
-}
-
-
-                                                       /* Dropdown hover */
-
-.dropbtn {
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #d7d3d3;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  border-radius: 8px;
-}
-
-.dropdown-content a {
-  color: rgb(254, 251, 251);
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #34796c;
-    border-radius: 8px;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    border-radius: 8px;
-}
-
-
-
-
-                                                        /* Overlay toggle css */
-
-
-.overlay {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  background-color: rgba(12, 10, 10, 0.885); /* Changed overlay background color and opacity */
-  overflow-x: hidden;
-  transition: 0.5s;
-  z-index: 1000;
-}
-
-.overlay-content {
-  position: absolute;
-  top: 65%; /* Changed from 65% to 50% */
-  left: 30%; /* Added to center horizontally */
-  transform: translate(-50%, -50%); /* Center both horizontally and vertically */
-  width: 80%;
-  max-width: 250px;
-  padding: 20px;
-  font-size: 15px; /* Slightly reduced font size from 20px to 18px */
-  color: #f9f5f5;
-  text-align: center;
-  margin-top:25px;
-}
-
-
-.overlay.show {
-  width: 50%; 
-}
-
-.overlay.show .overlay-content {
-  transform: translateX(0) translateY(-50%);
-}
-
-.overlay .closebtn {
-  position: absolute;
-  top: 35px;
-  right: 15px;
-  font-size: 24px;
-  color: #faf7f7; /* Changed close button color */
-  cursor: pointer;
-}
-
-.overlay-content i {
-  margin-right: 10px;
-  font-size: 18px;
-  padding-top: 15%;
-}
-
-
-.overlay p {
-      font-size: 45px;
-      margin-bottom: 20px;
-      color: #f1f1f1;
-      padding-top: 10%;
-}
-
-.overlay iframe {
-      width: 80%;
-      max-width: 800px;
-      height: 250px;
-      border: 0;
-}
-
-.social{
-  color: white;
-  margin-top: 260px;
-  font-size: 40px;
-  margin-right: 50px;
-}
-
-                                                          /* pic & search css */
-
-.two-section .left{
-width: 60%;
-height: 30vh;
-position: absolute;
-z-index: 999;
-top: 23vh;
-color:  #0F4C5C;
-}
-
-.two-section .left h1{
-  font-size: 60px;
-  font-weight: 700;
-  margin-left: 80px; 
-}
-
-.two-section .left h4{
-  margin-left: 80px; 
-  color:  #282a2a;
-}
-
-
-.search {
-    margin-top: 20px;
-    margin-left: 100px;
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    position: relative;
-}
-
-.search input {
-    width: 2500%; /* Adjusted width */
-    border: 0;
-    background-color: white;
-    padding: 25px 40px;
-    font-size: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-left: -40px;
-}
-
-.search-btn {
-    width: 560%; /* Adjusted width */
-    border: 0;
-    background-color: #3C6E71;
-    color: #e7edef;
-    padding: 25px 10px;
-    font-size: 15px;
-    font-weight: 700;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    cursor: pointer;
-}
-
-
-.hero-image {
-  width: 80%; /* Adjust the width as needed */
-  height: 70vh; /* Adjust the height as needed */
-  background-image: url(wall.jpeg);
-  border-radius: 5px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  right: -17%;
-}
-
-
-                                                    /* for popular tags */
-
-h3 {
-    font-size: 24px; 
-    margin-left: 70px;
-    margin-top: 40px;
-    color:  #090909;
-  }
-
-  .flow {
-    display: flex; /* Display buttons horizontally */
-    align-items: center; /* Align items vertically within flex container */
-    justify-content: space-between;
-    padding: 20px;
-  }
-
-  .flow li {
-    list-style: none; /* Remove default list bullets */
-  }
-
-  .flow button {
-    font-size: 18px; 
-    padding: 8px 16px; /* Add padding to buttons */
-    background-color: #f1f1f1; 
-    border: none; /* Remove button borders */
-    border-radius: 4px; 
-    cursor: pointer; 
-    margin-left: 50px;
-  }
-
-                                                     /* for transition1 */
-.animate {
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.left.loaded .animate {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-@keyframes staticFadeIn {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.static {
-  animation: staticFadeIn 0.8s ease forwards;
-}
-
-                                                      /* trolley css */
-
- .trolley-button {
-  position: fixed;
-  bottom: -20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  background-color: #dcedfb;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgb(3, 76, 36);
-  box-shadow: 0 0 1em rgba(1, 17, 39, 0.25);
-  cursor: pointer;
-  opacity: 0;
-  transition: bottom 0.5s ease-out, opacity 0.5s ease-out;
-  transform: translateX(-50%);
-  z-index: 9999; /* Ensure the button is on top of other content */
-}
-
-.trolley-button.show1 {
-  opacity: 1;
-  bottom: 20px;
-}
-
-.trolley-button::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(78, 76, 135, 0.3);
-  border-radius: 50%;
-  transform: scale(0);
-  opacity: 0;
-  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-  transform-origin: center; /* Add this line to set the origin of the ripple */
-}
-
-.trolley-button:hover::before {
-  transform: scale(1);
-  opacity: 1;
-}
-
-
-/* Add this if you want the trolley button to overlap as you scroll */
-.trolley-button.overlap {
-  transition: bottom 0.5s ease-out, opacity 0.5s ease-out, transform 0.5s ease-out;
-  transform: translateX(-50%) translateY(-50%);
-}
-
-
-
-
-
-                                                      /* Option css */
-/* Clear float and create a new row */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.column {
-  float: left;
-  width: calc(33.33% - 20px); /* Adjust width and margin */
-  margin: 0 10px; /* Add margin on both sides */
-  text-align: center;
-}
-
-.centered-image {
-  width: 100%;
-  border-radius: 5px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  display: block;
-  margin: 0 auto;
-}
-
-.centered-image:hover {
-  transform: scale(1.05);
-  filter: brightness(90%);
-}
-
-.center-text {
-  text-align: center;
-  font-size: 36px;
-  color: #101d55;
-  margin: 20px 0;
-}
-
-.big-font {
-  font-size: 46px;
-  text-align: center;
-  color: #101d55;
-  margin-top: 50px;
-  margin-bottom: 30px;
-}
-
-.property-info {
-  margin-top: 10px;
-  text-align: left;
-  margin-left: 40px;
-}
-
-.price {
-  font-weight: bold;
-  font-size: 18px;
-  color: #f6f8f9;
-  background-color: #3C6E71;
-  border-radius: 5px;
-  margin: 5px 10px 0;
-  padding: 5px 10px;
-}
-
-.location {
-  margin-top: 5px;
-  font-size: 26px;
-  color: green;
-  margin-left: 10px;
-}
-
-.amenities {
-  margin-top: 10px;
-  font-size: 13px;
-  margin-left: 10px;
-}
-
-.icon {
-  margin-right: 5px;
-}
-
-
-
-
-                                                    /* Slideshow container */
-.caro{
-  font-size: 46px;
-  color: #101d55;
-  text-align: left;
-  margin-top: 70px;
-  margin-bottom: 30px;
-  margin-left: 45px;
-}
-
-
-.another-centered-image{
-  float: left;
-}
-
-
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin-left: 140px;
-}
-
-.mySlides {
-  position: relative;
-  left: -90px;
-}
-
-
-.mySlides img {
-  border-radius: 10px;
-  margin-bottom: 35px;
-}
-
-.dot {
-  height: 13px;
-  width: 13px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-.write{
-margin-top: 90px;
-font-size: 20px;
-margin-right: 55px;
-
-}
-.money{ 
-  font-size: 35px;
-  color:#101d55;
-}
-
-.slide {
-    text-align: center;
-    margin-top: 90px;
-    margin-right: 800px;
-    margin-bottom: 95px;
-  }
-
-
-                                                  /*Company aspects css*/
-.new-image{
-  float: left;
-  border-radius: 10px;
-  margin-left: 35px;
-  margin-right: 20px;
-  margin-bottom: 45px;
-}
-
-
-
-.aspect{
-  font-size: 55px;
-  color:#101d55 ;
-
-  opacity: 0; /* Initially hide the element */
-    transform: translateY(50px); /* Move the element down */
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-
-.aspect.show {
-    opacity: 1; /* Show the element */
-    transform: translateY(0); /* Move the element back to its original position */
-  }
-
-
-.statistics {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-}
-
-  .statistic {
-    text-align: center;
-    padding: 20px;
-  }
-
-  .statistics .statistic {
-    opacity: 0; /* Initially hide the elements */
-    transform: translateY(50px); /* Move the elements down */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Apply transition effect */
-  }
-
-  .statistics .statistic.show {
-    opacity: 1; /* Show the elements */
-    transform: translateY(0); /* Move the elements back to their original position */
-  }
-
-  .stat-number {
-    font-size: 50px;
-    font-weight: bold;
-    color: #101d55;
-  }
-
-  .stat-label {
-    font-size: 18px;
-    margin-top: 5px;
-    color: #666;
-  }
-
-                                                  /* Testimonials css */
-
-.help{
-    font-size: 46px;
-    text-align: center;
-    color: #101d55;
-    margin-top: 100px;
-    margin-bottom: 40px;
-    margin-right: 35px;
-
-}
-
-
-.wrapper {
-  background-color: #ffffff;
-  position: relative;
-  width: 80vw;
-  max-width: 41em;
-  min-height: 25em;
-  border-radius: 0.6em;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  display: flex;
-  margin-top: 230px;
-}
-.testimonial-container {
-  width: 85%;
-  height: 100%;
-  position: relative;
-  margin: auto;
-  padding: 1.8em 1.2em;
-  cursor: pointer;
-}
-.wrapper button {
-  font-size: 1.8em;
-  height: 2.2em;
-  width: 2.2em;
-  background-color: #ffffff;
-  position: absolute;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  border: none;
-  color: #0a69ed;
-  box-shadow: 0 0 1em rgba(1, 17, 39, 0.25);
-  cursor: pointer;
-  border-radius: 50%;
-}
-button#next {
-  right: -5.5em;
-}
-button#prev {
-  left: -5.5em;
-}
-.testimonial-container p {
-  color: #8c8c90;
-  text-align: center;
-  font-size: 0.9em;
-  line-height: 2em;
-  letter-spacing: 0.05em;
-}
-.testimonial-container img {
-  display: block;
-  margin: 1.8em auto 1.25em auto;
-  border-radius: 50%;
-  width: 4.4em;
-}
-.testimonial-container h3 {
-  color: #2d3d67;
-  font-size: 1em;
-  text-align: center;
-  margin-right: 60px;
-}
-.testimonial-container h6 {
-  color: #bcc4da;
-  font-size: 0.9em;
-  letter-spacing: 0.03em;
-  font-weight: 400;
-  text-align: center;
-}
-
-
-@media screen and (max-width: 650px) {
-  .wrapper {
-    font-size: 14px;
-  }
-}
-
-
-
-                                                      /* Side by side css */
- .area {
-  margin-left: 90px;
-}
-
-.view {
-  background-color: rgb(1, 75, 1);
-  color: white;
-  font-size: 25px;
-  border-radius: 8px;
-  margin-left: 180px;
-  margin-top: 25px;
-  font-weight: bold;
-  transition: transform 0.3s ease;
-  display: inline-block;
-  padding: 10px 20px;
-  border: none;
-}
-
-.view:hover {
-  transform: scale(0.95);
-  background-color: #101d55;
-}
-
-.loftarea {
-  font-size: 46px;
-  color: #101d55;
-  margin-top: 70px;
-  margin-bottom: 30px;
-  margin-left: 90px;
-}
-
-.loftarea,
-.area {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity 1s, transform 1s;
-}
-
-.show {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.loft {
-  flex: 1;
-  margin-right: 20px;
-}
-
-.images-container {
-  flex: 1;
-  display: flex;
-  margin-top: 85px;
-  margin-right: 65px;
-}
-
-.image {
-  width: 230px;
-  height: 515px;
-  position: relative; /* Add position relative to allow absolute positioning within */
-  transition: opacity 0.3s ease; /* Add fade transition */
-}
-
-.image1 {
-  background-image: url('place.jpeg');
-}
-
-.image2 {
-  background-image: url('place2.jpeg');
-}
-
-.image3 {
-  background-image: url('place3.jpeg');
-}
-
-.image4 {
-  background-image: url('place4.jpeg');
-}
-
-.image:hover::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(22, 54, 18, 0.582); /* Green transparent hover effect */
-  pointer-events: none; /* Allows hovering through the transparent overlay */
-  transition: opacity 0.3s ease; /* Add fade transition */
-  opacity: 1;
-}
-
-.image::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 30%; /* Adjust the height of the faded green area */
-  background: linear-gradient(rgba(0, 255, 0, 0), rgba(23, 181, 23, 0.725));
-  pointer-events: none;
-}
-
-.image-text1,
-.image-text2,
-.image-text3,
-.image-text4 {
-  position: absolute;
-  top: 445px; /* Adjust the top positioning as needed */
-  color: rgb(243, 247, 245);
-  font-size: 16px;
-  font-weight: bold;
-  padding: 5px 10px;
-  text-align: left; /* Align text to the left */
-  width: auto; /* Allow the width to adjust based on text content */
-  margin-top: 820px;
-}
-
-.image-text2 {
-  left: 715px;
-}
-
-.image-text3 {
-  left: 950px;
-}
-
-.image-text4 {
-  left: 1170px;
-}
-
-
-                                                            /* Footer css */
-
-.Footer {
-    width: 100%;
-    height: 594.19px;
-    background-image: url('back.jpeg'); 
-    background-position: center center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-}
-
-.Footer section {
-    width: 80%;
-    height: 514.19px;
-    margin-top: 80px;
-    padding: 10px;
-}
-
-.Footer section .FooterHeader {
-    width: 100%;
-    height: 87.188px;
-    margin-bottom: 50px;
-    display: flex;
-}
-
-.Footer section .FooterHeader .Heading-1 {
-    width: 746.66px;
-    height: auto;
-    padding: 10px;
-    padding-left: 10px;
-    padding-bottom: 10px;
-    padding-right: 150px;
-    color: #133b5c;
-    font-size: 30px;
-    font-weight: 500;
-}
-
-.Footer section .FooterHeader .Heading-2 {
-    width: 322.53px;
-    height: auto;
-    padding: 10px;
-    font-size: 35px;
-    font-weight: 550;
-}
-
-.Footer section .FooterContent {
-    width: 100%;
-    height: 176px;
-    margin-bottom: 80px;
-    display: flex;
-}
-
-.Footer section .FooterContent .F-Content {
-    width: 100%;
-    height: auto;
-    padding: 10px;
-}
-
-.Footer section .FooterContent .F-Content .F-Link {
-    margin-bottom: 20px;
-}
-
-.Footer section .FooterContent .F-Content .F-Link a {
-    text-decoration: none;
-    color: #133b5c;
-    font-weight: 500;
-    display: block;
-}
-
-.Footer section .FooterContent .F-Content .Box-1 .F-Link {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-}
-
-.Footer section .FooterContent .F-Content .Box-2 {
-    height: 100%;
-    height: 56px;
-}
-
-.Footer section .FooterContent .F-Content .Box-2 a {
-    margin-right: 10px;
-    font-size: 35px;
-    color: #3C6E71;
-}
-
-.Footer section .FooterCredits {
-    width: 100%;
-    height: 46px;
-    text-align: center;
-    color: #797a7e;
-    margin-top: 25px;
-}
-
-
-
-
-                                          /* Media query for screens smaller than 768px */
-
-  @media (max-width: 768px) {
-  .nav {
-    justify-content: center;
-  }
-
-  ul {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background-color: white;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    z-index: 1000;
-  }
-
-  ul.show {
-    display: flex;
-  }
-
-  ul li {
-    margin: 10px 0;
-    text-align: center;
-  }
-
-  .menu {
-    margin-left: 0;
-  }
-
-  .toggle-btn {
-    margin-right: 10px;
-  }
-
-  .log-box {
-    margin-right: 0;
-  }
-
-  /* Hide the menu items in mobile navigation */
-  .nav.show-mobile ul {
-    display: none;
-  }
-}
-
-
-@media (max-width: 768px) {
-  .search {
-    margin: 20px auto;
-    text-align: center;
-  }
-
-  .search input {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .search-btn {
-    width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .loftarea,
-  .area {
-    opacity: 1;
-    transform: none;
-    margin-left: 20px;
-    margin-top: 30px;
-    text-align: center;
-  }
-
-  .loft {
-    margin-right: 0;
-    text-align: center;
-  }
-
-  .images-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .image {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-  }
-
-  .image-text1,
-  .image-text2,
-  .image-text3,
-  .image-text4 {
-    text-align: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .slideshow-container {
-    margin-left: 20px;
-    max-width: 80%;
-  }
-
-  .mySlides {
-    left: 0;
-  }
-
-  .dot {
-    margin: 0 5px;
-  }
-}
-
-
-@media (max-width: 768px) {
-  .new-image {
-    float: none;
-    margin: 0 auto 20px auto;
-  }
-
-  .aspect,
-  .statistics .statistic {
-    opacity: 1;
-    transform: none;
-    text-align: center;
-  }
-}
-
-
-
-@media (max-width: 768px) {
-  .footer {
-    padding: 60px 20px;
-  }
-
-  .footer-column {
-    padding: 5px;
-  }
-
-  .footer-statement {
-    font-size: 24px;
-  }
-
-  .footer-links {
-    font-size: 18px;
-  }
-
-  .right-column p {
-    font-size: 12px;
-  }
-
-  .right-column i {
-    font-size: 24px;
-  }
-
-  .middle-column,
-  .right-column {
-    margin-top: 30px;
-  }
-}
-
-</style>
+    <title>TerraSpace | Premium Real Estate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f9675;
+            --accent-light: #12b886;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --dark: #212529;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-list {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: 30px;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1073&q=80') no-repeat center center/cover;
+            border-radius: 20px 0 0 20px;
+        }
+
+        .hero-content {
+            max-width: 550px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .hero-text {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(15, 150, 117, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        .stat-card-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-card-text {
+            color: var(--gray);
+        }
+
+        /* Categories Section */
+        .categories-section {
+            background-color: #f8f9fa;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(15, 150, 117, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Featured Listings */
+        .featured-listings {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .listing-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .listing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .listing-image {
+            height: 240px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .listing-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .listing-card:hover .listing-image img {
+            transform: scale(1.05);
+        }
+
+        .listing-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .listing-content {
+            padding: 25px;
+        }
+
+        .listing-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .listing-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .listing-address {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .listing-features {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eaeaea;
+            padding-top: 15px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .cta-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 15px;
+        }
+
+        .cta-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+        }
+
+        /* Page-specific styles */
+        .page-hero {
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .page-hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .page-hero-text {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .property-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: white;
+            border: 1px solid #eaeaea;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active {
+            background-color: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero::before {
+                width: 40%;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 40px;
+                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-list {
+                flex-direction: column;
+                width: 100%;
+                gap: 20px;
+            }
+            
+            .nav-actions {
+                margin-left: 0;
+                margin-top: 30px;
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero::before {
+                display: none;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .cta-form {
+                flex-direction: column;
+            }
+            
+            .listings-grid, .property-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .property-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-actions .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .stats-grid, .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<!--Nav area-->
-<div class="nav flex">
-  <div class="log-box">
-      <h2 class="dex">Dexico.</h2>
-  </div>
-  <div class="menu" id="menus">
-      <ul>
-          <div class="dropdown">
-              <a href="index.html" style="color: #0F4C5C;"><li class="dropbtn">Home</li></a>
-              <div class="dropdown-content">
-                <a href="home1.html">Home 1</a>
-                <a href="home2.html">Home 2</a>
-                <a href="home3.html">Home 3</a>
-              </div>
-            </div>
-
-
-          <div class="dropdown">
-            <a href="property.html" style="color: #0F4C5C;"><li class="dropbtn">Property</li></a>
-              <div class="dropdown-content">
-                <a href="prolist.html">Property List</a>
-                <a href="prodetails.html">Property details</a>
-                <a href="prowidth.html">Property details full Width</a>
-                <a href="agents.html">Agents</a>
-                <a href="agdetails.html">Agent details</a>
-              </div>
-            </div>
-
-
-          <div class="dropdown">
-            <a href="about.html" style="color: #0F4C5C;"><li class="dropbtn">About</li></a>
-
-            </div>
-
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Terra<span>Space</span></a>
             
-            <div class="dropdown">
-              <a href="blogs.html" style="color: #0F4C5C;"><li class="dropbtn">Blogs</li></a>
-              <div class="dropdown-content">
-                <a href="post.html">Single Post</a>
-              </div>
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="house.html" class="nav-link">House</a></li>
+                    <li><a href="apartment.html" class="nav-link">Apartment</a></li>
+                    <li><a href="residential.html" class="nav-link">Residential</a></li>
+                    <li><a href="commercial.html" class="nav-link">Commercial</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <a href="#" class="btn btn-outline">Sign In</a>
+                    <a href="#" class="btn btn-primary">List Property</a>
+                </div>
             </div>
-
-
-         <div class="dropdown">
-          <a href="contacts.html" style="color: #0F4C5C;"><li class="dropbtn">Contacts</li></a>
+            
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
             </div>
-      </ul>
-      <span class="toggle-btn" onclick="toggle()">&#9776;</span>
-      <div id="myOverlay" class="overlay">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a>
-        <p>Lets Be Together</p>
-        <br>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6344.6987579136485!2d-122.01341128842799!3d37.33423650488766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb596e9e188fd%3A0x3b0d8391510688f0!2sApple%20Park!5e0!3m2!1sen!2sin!4v1691667033122!5m2!1sen!2sin" width="50%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <br>
-        <div class="overlay-content">
-          <i class="fa fa-map-marker-alt"></i> LA, Vehicula Street, 58<br>
-          <i class="fa fa-phone"></i> +123 6897 8974<br>
-          <i class="fa fa-envelope"></i> hello@merkulov
         </div>
-        <div class="social">
-          <i class="fab fa-twitter"></i>
-          <i class="fab fa-facebook"></i> 
-          <i class="fab fa-instagram"></i> 
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Discover Your Ideal Property</h1>
+                <p class="hero-text">Connect with buyers and sellers in our exclusive real estate marketplace. Find your perfect home with ease.</p>
+                
+                <div class="hero-actions">
+                    <a href="#" class="btn btn-primary">Explore Listings</a>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">300+</span>
+                        <span class="stat-label">Satisfied Clients</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">620+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      
-  </div>
-</div>
-
-
-<!--Search area-->
-<div class="two-section flex inner">
-  <div class="left">
-      <h1 class="animate">Apartments <br> For Life</h1>
-      <h4 class="animate">In the heart of Brooklyn, in a vibrant neighborhood just east of Prospect Park,<br>
-        stands an eight-story, full-service, strikingly beautiful apartment building</h4>
-      <div class="search lux-shadow flex">
-          <input type="text" class="s-btn" placeholder="Search..."/>
-          <button class="search-btn s-btn">Search</button>
-      </div>
-      <h3>Popular tags<br></h3>
-      <div class="flow">
-          <li><button type="button">Brooklyn</button></li>
-          <li><button type="button">Las Vegas</button></li>
-          <li><button type="button">Chicago</button></li>
-          <li><button type="button">More</button></li>
-      </div>
-  </div>
-  <div class="hero-image"></div>
-</div>
-
-
-
-<!--Side by side area-->
-<div class="container">
-  <div class="loft">
-      <div class="loftarea">Sunny <br> Loft <br> Apartments</div>
-      <p class="area">From the rooftop terrace, <br> down to the first floor gym,<br> every detail of eight floors provides <br> amenities filled with convenience, class.</p>
-    <button class="view">View</button>
-  </div>
-
-  <div class="images-container">
-      <div class="image image1"></div>
-          <div class="image-text1">Brooklyn <br> 456 Properties</div>
-
-    <div class="image image2"></div> 
-      <div class="image-text2">Manhattan <br> 137 Properties</div>
-
-    <div class="image image3"></div> 
-      <div class="image-text3">Bronx <br> 89 Properties</div>
-
-    <div class="image image4"></div> 
-      <div class="image-text4">Queens <br> 249 Properties</div>
-  </div>
-
-</div>
-
-
-
-
-<!--Options area-->
-    <div class="big-font">Property Highlights</div>
-    <div class="row">
-      <div class="column">
-        <img src="pic1.jpeg" style="width:80%" class="centered-image">
-        <div class="property-info">
-          <button class="price" style="border: none;">$200,000</button>
-          <div class="location">
-            <i class="fas fa-map-marker-alt icon"></i> New York, NY
-          </div>
-          <div class="amenities">
-            <i class="fas fa-bed icon"></i> 2 rooms |
-            <i class="fas fa-bath icon"></i> 2 bathrooms |
-            <i class="fas fa-ruler icon"></i> 1,200 sq ft
-          </div>
-        </div>
-      </div>
-    
-      <div class="column">
-        <img src="pic2.jpeg" style="width:80%" class="centered-image">
-        <div class="property-info">
-          <button class="price" style="border: none;">$250,000</button>
-          <div class="location">
-            <i class="fas fa-map-marker-alt icon"></i> Los Angeles, CA
-          </div>
-          <div class="amenities">
-            <i class="fas fa-bed icon"></i> 3 rooms |
-            <i class="fas fa-bath icon"></i> 2 bathrooms |
-            <i class="fas fa-ruler icon"></i> 1,800 sq ft
-          </div>
-        </div>
-      </div>
-    
-      <div class="column">
-        <img src="pic3.jpeg" style="width:80%" class="centered-image">
-        <div class="property-info">
-          <button class="price" style="border: none;">$180,000</button>
-          <div class="location">
-            <i class="fas fa-map-marker-alt icon"></i> Chicago, IL
-          </div>
-          <div class="amenities">
-            <i class="fas fa-bed icon"></i> 2 rooms |
-            <i class="fas fa-bath icon"></i> 2 bathrooms |
-            <i class="fas fa-ruler icon"></i> 1,000 sq ft
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-<!--Traditional area-->
-<div class="caro">Traditional Apartments</div>
-<div class="slideshow-container">
-  <div class="mySlides fade">
-    <img src="c1.jpeg" width="600" height="400" class="another-centered-image">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="c2.jpeg" width="600" height="400" class="another-centered-image">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="c3.jpeg" width="600" height="400" class="another-centered-image">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="c4.jpeg" width="600" height="400" class="another-centered-image">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="c5.jpeg" width="600" height="400" class="another-centered-image">
-  </div>
-</div>
-
-  <div class="write">
-    New York is more than a small Island Manhattan.<br>
-    There are more districts that represent New York City,<br> who we will present below.<br><br>
-    <div class="location">
-      <i class="fas fa-map-marker-alt icon"></i> New York, NY<br>
-    </div>
-    <div class="amenities">
-      <i class="fas fa-bed icon"></i> 2 rooms |
-      <i class="fas fa-bath icon"></i> 2 bathrooms |
-      <i class="fas fa-ruler icon"></i> 1,200 sq ft
-    </div>
-    <br>
-    Price
-    <div class="money">
-      $125/month
-    </div>
-  </div>
-
-  <div class="slide">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span class="dot" onclick="currentSlide(4)"></span>
-    <span class="dot" onclick="currentSlide(5)"></span>
-  </div>
-
-
-
-
-<!--Company aspects area-->
-<img src="keep1.jpeg" style="width:35%" class="new-image">
-<div class="aspect">Something About Our <br> Company</div><br>
-Browse the highest quality listings, apply online, sign your lease, and even pay your rent <br> from any device.<br><br>
-<div class="statistics">
-  <div class="statistic">
-    <div class="stat-number">15+</div>
-    <div class="stat-label">Years of Experience</div>
-  </div>
-  <div class="statistic">
-    <div class="stat-number">23</div>
-    <div class="stat-label">Qualified Realtors</div>
-  </div>
-  <div class="statistic">
-    <div class="stat-number">849</div>
-    <div class="stat-label">Best Properties</div>
-  </div>
-</div>
-<img src="keep2.jpeg" style="border-radius: 10px; margin-top: 10px; position: relative;" width="720" height="350">
-
-
-
-<!--Testimonials area -->
-<div class="help">Clients We Help</div>
-<div class="wrapper">
-  <div class="testimonial-container" id="testimonial-container"></div>
-  <button id="prev">&lt;</button>
-  <button id="next">&gt;</button>
-</div>
-
-
-<!--Footer area-->
-<div class="Footer">
-    <section>
-      <div class="FooterHeader">
-        <div class="Heading-1">A special and qualified service dedicated to luxury properties for rent</div>
-        <div class="Heading-2"><a href="#" style="text-decoration: none;color: #133b5c;">Dexico<span style="color: #3C6E71;">.</span></a></div>
-      </div>
-      <div class="FooterContent">
-        <div class="F-Content">
-          <div class="F-Link"><a href="#">– Propertys</a></div>
-          <div class="F-Link"><a href="#">– Agents</a></div>
-          <div class="F-Link"><a href="#">– Locations</a></div>
-          <div class="F-Link"><a href="#">– Clients Support</a></div>
-        </div>
-        <div class="F-Content">
-          <div class="F-Link"><a href="#">– Home</a></div>
-          <div class="F-Link"><a href="#">– About</a></div>
-          <div class="F-Link"><a href="#">– Blog</a></div>
-          <div class="F-Link"><a href="#">– Contacts</a></div>
-        </div>
-        <div class="F-Content">
-          <div class="Box-1">
-            <div class="F-Link" style="display: flex;align-items: center;"><i class="fa fa-map-marker-alt" style="color: #3C6E71;margin-right: 20px; font-size: 25px;"></i>LA, Vehiclua Street, 58</div>
-            <div class="F-Link" style="display: flex;align-items: center;"><i class="fa fa-phone" style="color: #3C6E71;margin-right: 20px; font-size: 25px;"></i>+91 1234567890</div>
-            <div class="F-Link" style="display: flex;align-items: center;"><i class="fa fa-envelope" style="color: hsl(191, 77%, 12%);margin-right: 20px; font-size: 25px;"></i>hello@merkulov.design</div>
-          </div>
-          <div class="Box-2" style="display: flex;align-items: center;">
-            <a href="#"><i class="fab fa-twitter" style="color: #3C6E71;margin-right: 10px;font-size: 35px;"></i></a>
-            <a href="#"><i class="fab fa-facebook" style="color: #3C6E71;margin-right: 10px;font-size: 35px;"></i></a>
-            <a href="#"><i class="fab fa-instagram" style="color: #3C6E71;font-size: 35px;"></i></a>  
-          </div>
-        </div>
-      </div>
-      <hr>
-      <div class="FooterCredits">
-        <b>Merkulove © Dexico Template All rights reserved Copyrights 2020</b>
-      </div>
     </section>
-  </div>
-  
 
+    <!-- Stats Section -->
+    <section class="section stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-card-number">300+</div>
+                    <div class="stat-card-text">Satisfied Clients</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="stat-card-number">620+</div>
+                    <div class="stat-card-text">Projects Completed</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="stat-card-number">60+</div>
+                    <div class="stat-card-text">Expert Team Members</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-card-number">4.8</div>
+                    <div class="stat-card-text">Reviews Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!--trolley-->
-<div class="trolley-button show1 overlap">
-  <i class="fa fa-shopping-cart"></i>
-</div>
+    <!-- Categories Section -->
+    <section class="section categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Top Categories</h2>
+                <p class="section-subtitle">Explore our diverse range of property types to find your perfect match</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="category-title">Single-Family Homes</h3>
+                    <p>Perfect for families looking for privacy and space</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="category-title">Duplex Homes</h3>
+                    <p>Ideal for multi-generational living or investment</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="category-title">Modular/Prefab Homes</h3>
+                    <p>Modern, efficient, and customizable housing solutions</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="category-title">Luxurious Estates</h3>
+                    <p>Premium properties with exceptional amenities</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3 class="category-title">Mid-Range Homes</h3>
+                    <p>Quality homes at affordable prices</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="category-title">Ultra-Luxury Estates</h3>
+                    <p>The pinnacle of luxury living and design</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3 class="category-title">Waterfront Homes</h3>
+                    <p>Breathtaking properties with water views</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="category-title">Condominiums</h3>
+                    <p>Low-maintenance living in prime locations</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Featured Listings Section -->
+    <section class="section featured-listings">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Listings</h2>
+                <p class="section-subtitle">Discover our handpicked selection of premium properties in prime locations</p>
+            </div>
+            
+            <div class="listings-grid">
+                <!-- Listing 1 -->
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="Modern Apartment">
+                        <span class="listing-badge">For Sale</span>
+                    </div>
+                    <div class="listing-content">
+                        <div class="listing-price">$450,000</div>
+                        <h3 class="listing-title">Modern Luxury Apartment</h3>
+                        <div class="listing-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Manhattan, New York</span>
+                        </div>
+                        <div class="listing-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>3 Beds</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                <span>2 Baths</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>1,250 sqft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Listing 2 -->
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Luxury Villa">
+                        <span class="listing-badge">For Rent</span>
+                    </div>
+                    <div class="listing-content">
+                        <div class="listing-price">$3,200/mo</div>
+                        <h3 class="listing-title">Contemporary Family Villa</h3>
+                        <div class="listing-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Beverly Hills, LA</span>
+                        </div>
+                        <div class="listing-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>4 Beds</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                <span>3 Baths</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>2,800 sqft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Listing 3 -->
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1084&q=80" alt="Penthouse">
+                        <span class="listing-badge">For Sale</span>
+                    </div>
+                    <div class="listing-content">
+                        <div class="listing-price">$1,250,000</div>
+                        <h3 class="listing-title">Luxury Penthouse Suite</h3>
+                        <div class="listing-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Downtown, Chicago</span>
+                        </div>
+                        <div class="listing-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>3 Beds</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                <span>3.5 Baths</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>2,100 sqft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="house.html" class="btn btn-outline">View All Properties</a>
+            </div>
+        </div>
+    </section>
 
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Ready to Make Your Property a Reality?</h2>
+            <p class="cta-text">Experience urban sophistication in our modern properties featuring open-plan living and sophisticated design.</p>
+            
+            <div class="cta-form">
+                <input type="email" class="cta-input" placeholder="Enter your email">
+                <button class="btn btn-primary">Book a Call</button>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <a href="#" class="btn btn-outline" style="color: white; border-color: white;">Get Started Now</a>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>TerraSpace</h3>
+                    <p style="color: rgba(255,255,255,0.7); margin-top: 20px;">Premium real estate services with a personalized approach. Find your dream property with ease.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="house.html">House</a></li>
+                        <li><a href="apartment.html">Apartment</a></li>
+                        <li><a href="residential.html">Residential</a></li>
+                        <li><a href="commercial.html">Commercial</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Property Sales</a></li>
+                        <li><a href="#">Property Rentals</a></li>
+                        <li><a href="#">Property Management</a></li>
+                        <li><a href="#">Consultation</a></li>
+                        <li><a href="#">Valuation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Luxury Avenue, New York, NY 10001</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@terraspace.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 TerraSpace. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-<!--testimonial JS-->
-<script>
-  const testimonials = [
-    {
-      name: "Anna Keys",
-      job: "Happy client",
-      image: "image1.webp",
-      testimonial:
-        "An upside, still-widening consensus hypothesis of a housing-led broad economic recovery has taken meaningful hold of sentiment in the buyer-seller arena where it matters most—money for land.",
-    },
-    {
-      name: "Miranda Hobbs",
-      job: "Happy client",
-      image: "image2.jpeg",
-      testimonial:
-        "Looking for Hamptons pool days? How about a home right by the beach? No matter what you're looking for, you'll find it on Out East — a beautiful new way to find a home in the Hamptons.",
-    },
-    {
-      name: "Polina Podolski",
-      job: "Happy client",
-      image: "image3.webp",
-      testimonial:
-        "Home building's 2020 sling-shot trajectory—coming as it did amidst the shock and stress of the pandemic—defied gravity. It's one of American business and society's few feel-good stories in a bleak, topsy-turvy backdrop.",
-    }
-  ];
-  let i = 0;
-  let j = testimonials.length;
-  let testimonialContainer = document.getElementById("testimonial-container");
-  let nextBtn = document.getElementById("next");
-  let prevBtn = document.getElementById("prev");
-  let intervalId;
+    <script>
+        // Mobile Navigation Toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
 
-  let moveToNextTestimonial = () => {
-    i = (i + 1) % j;
-    displayTestimonial();
-  };
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+        });
 
-  let startSlideshow = () => {
-    intervalId = setInterval(moveToNextTestimonial, 3000); // Change the time interval as needed (in milliseconds)
-  };
+        // Animate stats on scroll
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-card-number');
+            stats.forEach(stat => {
+                const finalValue = parseFloat(stat.textContent);
+                let currentValue = 0;
+                const increment = finalValue / 50;
+                
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= finalValue) {
+                        stat.textContent = finalValue + (stat.textContent.includes('.') ? '' : '+');
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(currentValue) + (stat.textContent.includes('.') ? '' : '+');
+                    }
+                }, 30);
+            });
+        }
 
-  let stopSlideshow = () => {
-    clearInterval(intervalId);
-  };
+        // Check if stats are in viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
 
-  nextBtn.addEventListener("click", () => {
-    moveToNextTestimonial();
-    stopSlideshow(); // Stop automatic slideshow when user interacts
-  });
-
-  prevBtn.addEventListener("click", () => {
-    i = (j + i - 1) % j;
-    displayTestimonial();
-    stopSlideshow(); // Stop automatic slideshow when user interacts
-  });
-
-  let displayTestimonial = () => {
-    testimonialContainer.innerHTML = `
-      <p>${testimonials[i].testimonial}</p>
-      <img src=${testimonials[i].image}>
-      <h3>${testimonials[i].name}</h3>
-      <h6>${testimonials[i].job}</h6>
-    `;
-  };
-
-  document.addEventListener("DOMContentLoaded", () => {
-    displayTestimonial();
-    startSlideshow(); // Start the automatic slideshow when content is loaded
-  });
-
-  document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "hidden") {
-      stopSlideshow();
-    } else if (document.visibilityState === "visible") {
-      startSlideshow();
-    }
-  });
-</script>
-
-
-
-<!-- slideshow JS-->
-<script>
-  let slideIndex = 0;
-  showSlides();
-  
-  
-  function showSlides() {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 2000); // Change image every 2 seconds
-  }
-</script>
-
-
-
-<!--Overlay toggle JS-->
-<script>
-   function toggle() {
-  var overlay = document.getElementById("myOverlay");
-  overlay.classList.toggle("show");
-}
-
-function closeNav() {
-  var overlay = document.getElementById("myOverlay");
-  overlay.classList.remove("show");
-}
-
-</script>
-
-
-
-<!-- transition1 JS for apartments-->
-<script>
- window.onload = function() {
-    const container = document.querySelector('.left');
-    container.classList.add('loaded');
-  };
-</script>
-
-
-<!-- transition2 JS for aspects-->
-<script>
-function animateOnScroll() {
-    var aspectElement = document.querySelector('.aspect');
-    var statisticElements = document.querySelectorAll('.statistics .statistic');
-    
-    var aspectPosition = aspectElement.getBoundingClientRect().top;
-    var statisticPosition = statisticElements[0].getBoundingClientRect().top;
-    var windowHeight = window.innerHeight;
-    
-    if (aspectPosition < windowHeight) {
-      aspectElement.classList.add('show');
-    }
-    
-    if (statisticPosition < windowHeight) {
-      statisticElements.forEach(function(element) {
-        element.classList.add('show');
-      });
-    }
-  }
-
-  // Add event listeners to trigger animations
-  window.addEventListener('load', animateOnScroll);
-  window.addEventListener('scroll', animateOnScroll);
-</script>
-
-
-
-<!-- transition3 JS for sunny loft-->
-<script>
-function showElement(entries, observer) {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);
-      }
-    });
-  }
-
-  const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.5
-  };
-
-  const loftObserver = new IntersectionObserver(showElement, options);
-  const areaObserver = new IntersectionObserver(showElement, options);
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const loftarea = document.querySelector('.loftarea');
-    const area = document.querySelector('.area');
-
-    loftObserver.observe(loftarea);
-    areaObserver.observe(area);
-  });
-</script>
-
-
-
-<!--trolley drop**-->
-<script>
-const scrollButton = document.getElementById("scrollButton");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 200) {  // Change the threshold value as needed
-    scrollButton.classList.add("show1");
-  } else {
-    scrollButton.classList.remove("show1");
-  }
-});
-
-</script>
-
-
+        // Animate stats when they come into view
+        let statsAnimated = false;
+        window.addEventListener('scroll', function() {
+            const statsSection = document.querySelector('.stats-section');
+            if (isInViewport(statsSection) && !statsAnimated) {
+                animateStats();
+                statsAnimated = true;
+            }
+        });
+    </script>
 </body>
 </html>
